@@ -37,6 +37,12 @@ if($count < 1){
 		}else{
 			if($tipe=='mitra'){
 				echo 'hai user';
+				$hasil_query = mysqli_fetch_array($query);
+				echo 'hai user';
+				$query2=mysqli_query($config,"SELECT * FROM tb_akun JOIN tb_perusahaan ON tb_akun.id_akun=tb_perusahaan.id_akun WHERE username='$username' AND password='$password'");
+				$result2 = mysqli_fetch_array($query2);
+				$nmperusahaan = $result2['nm_perusahaan'];
+				$_SESSION['perusahaan']=$nmperusahaan;
 				$_SESSION['username']=$username;
 				$_SESSION['status']=$level;
 				$_SESSION['id_user']=$id_user;
