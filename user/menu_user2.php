@@ -22,20 +22,7 @@
         </ul>
       </li> 
 
-      <li>
-        <input type="checkbox" id="sub-two" class="submenu-toggle">        
-        <label class="submenu-label" for="sub-two"><i class="fas fa-user-circle"></i> Akun</label>
-        <div class="arrow right">&#8250;</div>           
-        <ul class="menu-sub">
-          <li class="menu-sub-title">
-            <label class="submenu-label" for="sub-two">Back</label>
-            <div class="arrow left">&#8249;</div>              
-          </li>        
-          <li><a href="edit_password.php?id=<?php echo $_SESSION['username'] ?>"><i class="fas fa-key"></i> Ubah Password</a></li>
-          <!-- <li><a href="#"><i class="fas fa-info-circle"></i> Lihat Akun</a></li>  -->
-          <li><a href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-door-open danger"></i> Log-Out</a></li>                               
-        </ul>
-      </li>                                  
+                                      
     </ul> 
   </li>
 </ul>

@@ -90,7 +90,7 @@ height: 350px;
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;SIGN OUT</a>
+                            
                             <?php
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
@@ -103,6 +103,7 @@ height: 350px;
                               </i></input>
                             </form>
                               <?php } ?>
+                              <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;SIGN OUT</a>
                               </div>
         </li>
         </li>
