@@ -4,8 +4,18 @@
   $formmenara = mysqli_query($config,"SELECT * FROM tb_form_menara JOIN tb_perusahaan ON tb_form_menara.id_perusahaan = tb_perusahaan.id_perusahaan WHERE tb_perusahaan.nm_perusahaan ='$perusahaan1' AND status_form='tidak_lengkap'");
   $countform = mysqli_num_rows($formmenara);
  ?>
-
- <ul class="menu-sidebar">
+<style >
+  .menu-sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #2c3e50;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  }
+</style>
+ <ul class="menu-sidebar"  >
       <li><a href="home.php"><i class="fas fa-home"></i> Beranda</a></li>
       <li><a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a></li>
       <li>
