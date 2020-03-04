@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
         <div class="container-fluid">
-           <button class="btn btn-link d-md-flex rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+           <button class="btn btn-link d-md-flex rounded-circle mr-3" id="menu-toggle"  type="button"><i class="fas fa-bars"></i>
+           </button>
             <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
             <ul class="nav navbar-nav flex-nowrap ml-auto">
                  
@@ -12,7 +13,7 @@
                         <i class="typcn typcn-th-large-outline" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 215px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
+                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 250px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
                             <div class="dropdown-divider"></div>
