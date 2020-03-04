@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
         <div class="container-fluid">
            <button class="btn btn-link d-md-flex rounded-circle mr-3" id="menu-toggle"  type="button"><i class="fas fa-bars"></i>
@@ -35,7 +36,6 @@
                               </div>
         </li>
         </li>
-        
         </ul>
         </div>
     </nav>
