@@ -73,16 +73,17 @@ height: 350px;
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-        <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+        <div class="container-fluid">
+          
+          </button>
             <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
             <ul class="nav navbar-nav flex-nowrap ml-auto">
-                <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
-                    
+                  
                 </li>
                 <li class="nav-item dropdown no-arrow" role="presentation">
                     <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
 
-                      <span class="d-none d-lg-inline mr-2 text-gray-600 small">
+                      <span class="d-md-flex text-gray-600 small">
                         <i class="typcn typcn-th-large-outline" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
@@ -91,6 +92,8 @@ height: 350px;
                                 style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;SIGN OUT</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
                             <?php
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
@@ -226,6 +229,7 @@ height: 350px;
 <hr />
 
  <?php include '../modal/logoutmodal.php'; ?>
+ <?php include '../modal/modal_perusahaan.php';?>
 <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
