@@ -72,9 +72,12 @@ height: 350px;
 
 </head>
 <body>
+
     <!-- Start: Navbar -->
      <?php include 'menu_user.php'; ?>
      <!-- End: Navbar White -->
+
+
 <br /><br />
  <header class="masthead text-center">
     <div class="overlay"></div>
