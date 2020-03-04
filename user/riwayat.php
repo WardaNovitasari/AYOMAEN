@@ -92,7 +92,7 @@ session_start();
 <body>
  
 <!-- partial:index.partial.html -->
-<nav class="navbar static-top">
+<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
 <ul class="nav-mobile check">
   <li>CLEON</li>        
   <li class="menu-container"> 
