@@ -23,26 +23,30 @@
 .sidepanel a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: dodgerblue;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidepanel a:hover {
-  color: blue;
+  color: #818181;
 }
 
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
   position: absolute;
   top: 0;
-  color: blue;
+  color: dodgerblue;
   right: 25px;
   font-size: 40px;
   margin-left: 50px;
   cursor: pointer;
+}
+
+.sidepanel .closebtn:hover {
+  color: black;
 }
 
 
@@ -50,7 +54,7 @@
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: blue;
+  color: #4e73df;
   padding: 10px 15px;
   border: none;
 }
@@ -58,6 +62,8 @@
 .openbtn:hover {
   color: black;
 }
+
+
     </style>
 
 
@@ -66,7 +72,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="home.php"><i class="fas fa-home"></i> Beranda</a>
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
-  <a href="#collapseExample"><i class="fas fa-map alt" data-toggle="collapse"></i> Riwayat</a>
+  <a href="#collapseExample"><i class="fas fa-clock alt" data-toggle="collapse"></i> Riwayat</a>
   <div class="collapse" id="collapseExample">
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
 </div>
