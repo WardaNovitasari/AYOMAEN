@@ -30,13 +30,10 @@
           <li><a href="riwayat.php"><i class="fas fa-map"></i> Riwayat Pengajuan Tempat</a></li>
           <li><a href="riwayat_form.php"><i class="fas fa-file danger"></i> <span class="badge badge-danger"><?php echo $countform ?></span> Riwayat Pengajuan Form</a></li>                               
         </ul>
-      </li> 
-
-                                      
+      </li>                            
     </ul> 
   </li>
 </ul>
-
 <?php }else if($_SESSION['riwayat']==2){?>
   <ul class="menu-sidebar">
       <li><a href="home.php"><i class="fas fa-home"></i> Beranda</a></li>
