@@ -1,8 +1,83 @@
+    <style type="text/css">
+      .nonaktiv{
+        pointer-events: none;
+      }
+    </style>
 
-<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+    <style type="text/css">
+      /* The sidepanel menu */
+.sidepanel {
+  height: 100%; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: white; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: blue;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  color: blue;
+  right: 25px;
+  font-size: 40px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: blue;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  color: black;
+}
+    </style>
+
+
+<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">        
+<div id="mySidepanel" class="sidepanel">
+  <li href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</li>
+  <li><a href="#">About</a></li>
+    <ul><a href="">Tes</a></ul>
+  <li><a href="#">Services</a></li>
+  <li><a href="#">Clients</a></li>
+  <li><a href="#">Contact</a></li>
+</div>
         <div class="container-fluid">
-           <button class="btn btn-link d-md-flex rounded-circle mr-3" id="menu-toggle"  type="button"><i class="fas fa-bars"></i>
+           <button class="btn openbtn d-md-flex mr-3" id="menu-toggle"  type="button" onclick="openNav()">
+          <i class="fas fa-bars">
+           </i>
            </button>
+
+
+
             <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
             <ul class="nav navbar-nav flex-nowrap ml-auto">
                  
@@ -39,3 +114,15 @@
         </ul>
         </div>
     </nav>
+
+    <script type="text/javascript">
+      /* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+}
+
+/* Set the width of the sidebar to 0 (hide it) */
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+    </script>

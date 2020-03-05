@@ -66,9 +66,13 @@ height: 350px;
     overflow-x: hidden;
 
 }
-
   </style>
  <!-- <script src="boostrap/leaflet/leaflet.js"></script>-->
+     <style type="text/css">
+      .nonaktiv{
+        pointer-events: none;
+      }
+    </style>
 
 </head>
 <body>
@@ -202,6 +206,7 @@ height: 350px;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="/assets/js/script.min.js?h=9af5f655239f5ce4fa692ca1c1513d50"></script>
+
 
 </body>
 </html>
