@@ -2,9 +2,13 @@
       .nonaktiv{
         pointer-events: none;
       }
-    </style>
 
+    </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
+
       /* The sidepanel menu */
 .sidepanel {
   height: 100%; /* Specify a height */
@@ -58,6 +62,59 @@
 .openbtn:hover {
   color: black;
 }
+
+.sidemenu {
+  height: 100%; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: white; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidemenu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidemenu a:hover {
+  color: blue;
+}
+
+/* Position and style the close button (top right corner) */
+.sidemenu .closebtn {
+  position: absolute;
+  top: 0;
+  color: blue;
+  right: 25px;
+  font-size: 40px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: blue;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  color: black;
+}
     </style>
 
 
@@ -66,8 +123,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="home.php"><i class="fas fa-home"></i> Beranda</a>
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
-  <a href="#collapseExample"><i class="fas fa-map alt" data-toggle="collapse"></i> Riwayat</a>
-  <div class="collapse" id="collapseExample">
+  <a href="javascript:void(0)" onclick="subMenu()"><i class="fas fa-map alt" ></i> Riwayat</a>
+  <div class="sidemenu" id="mySubmenu">
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
 </div>
        
@@ -111,7 +168,7 @@
                             </form>
                               <?php } ?>
                               </div>
-        </li>
+          </li>
         </li>
         </ul>
         </div>
@@ -128,6 +185,9 @@ function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
 
+function subMenu() {
+  document.getElementById("mySubmenu").style.width = "250px";
+}
 function buka(){
   $('.collapse').collapse()
 }
