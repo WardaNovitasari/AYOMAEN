@@ -2,9 +2,13 @@
       .nonaktiv{
         pointer-events: none;
       }
-    </style>
 
+    </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
+
       /* The sidepanel menu */
 .sidepanel {
   height: 100%; /* Specify a height */
@@ -72,9 +76,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="home.php"><i class="fas fa-home"></i> Beranda</a>
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
-  <a href="#collapseExample"><i class="fas fa-clock alt" data-toggle="collapse"></i> Riwayat</a>
-  <div class="collapse" id="collapseExample">
-  <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
+  <a href="javascript:void(0)" onclick="subMenu()"><i class="fas fa-map alt" ></i> Riwayat</a>
+  <div class="sidemenu" id="mySubmenu">
 </div>
        
 </div>
@@ -119,7 +122,7 @@
                             </form>
                               <?php } ?>
                               </div>
-        </li>
+          </li>
         </li>
         </ul>
         </div>
@@ -136,6 +139,9 @@ function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
 
+function subMenu() {
+  document.getElementById("mySubmenu").style.width = "250px";
+}
 function buka(){
   $('.collapse').collapse()
 }
