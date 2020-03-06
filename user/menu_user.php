@@ -1,3 +1,4 @@
+  
     <style type="text/css">
       .nonaktiv{
         pointer-events: none;
@@ -5,6 +6,15 @@
 
     </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=9cbc0924ce97a7266bf70ef7dd6f47d4">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css?h=03ab36d1dde930b7d44a712f19075641">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="/assets/css/styles.min.css?h=caf0e66302acd59bc37078e71bfa5f04">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
@@ -76,9 +86,12 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="home.php"><i class="fas fa-home"></i> Beranda</a>
   <a href="map.php"><i class="fas fa-map alt"></i> Lihat Lokasi</a>
-  <a href="javascript:void(0)" onclick="subMenu()"><i class="fas fa-map alt" ></i> Riwayat</a>
+  <!-- <a href="javascript:void(0)" onclick="subMenu()"><i class="fas fa-clock alt" ></i> Riwayat</a>
   <div class="sidemenu" id="mySubmenu">
-</div>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSub()">&times;</a>
+    <a href="riwayat.php"><i class="fas fa-map"></i> Riwayat Pengajuan Tempat</a>
+    <a href="riwayat_form.php"><i class="fas fa-file danger"></i> <span class="badge badge-danger"><?php echo $countform ?></span> Riwayat Pengajuan Form</a>
+</div> -->
        
 </div>
         <div class="container-fluid">
@@ -86,8 +99,6 @@
           <i class="fas fa-bars">
            </i>
            </button>
-
-
 
 
             <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
@@ -134,13 +145,18 @@ function openNav() {
   document.getElementById("mySidepanel").style.width = "250px";
 }
 
+function closeSub() {
+  document.getElementById("mySubmenu").style.width = "0px";
+  document.getElementById("mySidepanel").style.width = "0";
+}
+
 /* Set the width of the sidebar to 0 (hide it) */
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
 
 function subMenu() {
-  document.getElementById("mySubmenu").style.width = "250px";
+  document.getElementById("mySubmenu").style.width = "500px";
 }
 function buka(){
   $('.collapse').collapse()
