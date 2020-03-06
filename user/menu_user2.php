@@ -5,6 +5,20 @@
   $countform = mysqli_num_rows($formmenara);
  ?>
 <style >
+
+      .force-scroll {
+
+overflow-y: scroll;
+width: 400px;
+height: 350px;
+}
+.scrollable-menu {
+    
+    max-height: 500px;
+    width: 300px;
+    overflow-x: hidden;
+
+}
   .menu-sidebar {
   margin: 0;
   padding: 0;
@@ -44,13 +58,21 @@
                         <i class="typcn typcn-th-large-outline" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 250px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
+                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
-                                style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;SIGN OUT</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
+                                style="color: #2c3e50;font-size: 16px; padding-bottom: 18px"><?php echo $_SESSION['username'] ?></h1>
+                        <!-- UBAH & SIGNOUT KELUAR -->
+                        <div class="row" style="width: 100%; margin: 0px;">
+                          <div class="col text-nowrap text-center" style="width: 50%;height: 100%;">
+                            <i class="fas fa-exchange-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>
+                            <a href="edit_password.php" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;">Ubah password</a>
+                          </div>
+                          <div class="col text-center">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>
+                            <a href="#" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;" data-toggle="modal" data-target="#logoutModal">Keluar</a>
+                          </div>
+                        </div>
+                        <!-- LIST PERUSAHAAN -->
                             <?php
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
@@ -58,11 +80,15 @@
                             <div class="dropdown-divider"></div>
                               <input type="text" name="nmperusahaan" value="<?php echo $tempat['nm_perusahaan'] ?>" hidden>
                               <!-- <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;font-size: 15px;">&nbsp; -->
-                              <input type="submit" name="submit" value="<?php echo $tempat['nm_perusahaan'] ?>" class="dropdown-item" role="presentation"  style="color: #2c3e50;font-weight: bold;font-size: 15px; padding-left: 18px">
-                                
+                              <input type="submit" name="submit" value="<?php echo $tempat['nm_perusahaan'] ?>" class="dropdown-item" role="presentation"  style="color: #2c3e50; font-family: Montserrat, sans-serif; font-weight: bold;font-size: 15px; padding-left: 18px">
                               </input>
                             </form>
                               <?php } ?>
+
+                        <!-- TAMBAH PERUSAHAAN -->
+
+                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
+                            
                               </div>
           </li>
         </li>
