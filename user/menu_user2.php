@@ -123,8 +123,16 @@ height: 350px;
                             class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 250px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#logoutModal" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;SIGN OUT</a>
+                            <div class="row" style="width: 100%; margin: 0px;">
+                          <div class="col text-nowrap text-center" style="width: 50%;height: 100%;">
+                            <i class="fas fa-exchange-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>
+                            <a href="edit_password.php" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;">Ubah password</a>
+                          </div>
+                          <div class="col text-center">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>
+                            <a href="#" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;" data-toggle="modal" data-target="#logoutModal">Keluar</a>
+                          </div>
+                        </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
                             <?php
