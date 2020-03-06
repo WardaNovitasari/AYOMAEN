@@ -37,41 +37,32 @@
 .sidepanel a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: dodgerblue;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidepanel a:hover {
-  color: blue;
+  color: #818181;
 }
 
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
   position: absolute;
   top: 0;
-  color: blue;
+  color: dodgerblue;
   right: 25px;
   font-size: 40px;
   margin-left: 50px;
   cursor: pointer;
 }
 
-
-/* Style the button that is used to open the sidepanel */
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  color: blue;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
+.sidepanel .closebtn:hover {
   color: black;
 }
+
 
 .sidemenu {
   height: 100%; /* Specify a height */
@@ -117,7 +108,7 @@
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: blue;
+  color: #4e73df;
   padding: 10px 15px;
   border: none;
 }
@@ -125,6 +116,8 @@
 .openbtn:hover {
   color: black;
 }
+
+
     </style>
 
 
@@ -146,7 +139,10 @@
           <i class="fas fa-bars">
            </i>
            </button>
+
+
             <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
+
             <ul class="nav navbar-nav flex-nowrap ml-auto">
                  
                 </li>
