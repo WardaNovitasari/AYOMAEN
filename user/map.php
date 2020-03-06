@@ -41,6 +41,7 @@ session_start();
     #mapid{
     width: 100%;
     height: 600px;
+    z-index: 1;
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">

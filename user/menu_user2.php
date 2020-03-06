@@ -171,7 +171,7 @@
   height: 100%; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 3; /* Stay on top */
   top: 0;
   left: 0;
   background-color: white; /* Black*/
@@ -224,7 +224,7 @@
   height: 100%; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 3; /* Stay on top */
   top: 0;
   left: 0;
   background-color: white; /* Black*/
