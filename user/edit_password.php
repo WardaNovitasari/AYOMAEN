@@ -57,11 +57,7 @@ session_start();
 <body>
  
 <!-- partial:index.partial.html -->
-<<<<<<< HEAD
 
-    <?php include 'menu_user2.php'; ?>
-  
-=======
 <!-- <nav class="navbar navbar-light bg-light static-top">
 <ul class="nav-mobile check">
   <li>CLEON</li>        
@@ -77,7 +73,7 @@ session_start();
 <!--   </li>
 </ul>
 </nav> -->
->>>>>>> b231f324786596b665a4d08c8162a6966c8e6f90
+
 <br /><br />
 
   <div class="container">

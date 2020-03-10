@@ -133,11 +133,9 @@ height: 350px;
                             <a href="#" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;" data-toggle="modal" data-target="#logoutModal">Keluar</a>
                           </div>
                         </div>
-<<<<<<< HEAD
-                            
-=======
+
 <!-- LIST PERUSAHAAN -->
->>>>>>> b231f324786596b665a4d08c8162a6966c8e6f90
+
                             <?php
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
@@ -149,20 +147,14 @@ height: 350px;
                               </input>
                             </form>
                               <?php } ?>
-<<<<<<< HEAD
-                              <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223);font-weight: bold;"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
-                              </div>
 
-          </li>
-=======
 
                         <!-- TAMBAH PERUSAHAAN -->
 
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
                             
                               </div>
->>>>>>> b231f324786596b665a4d08c8162a6966c8e6f90
+
         </li>
         </ul>
         </div>
