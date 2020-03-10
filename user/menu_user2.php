@@ -3,6 +3,7 @@
   $perusahaan1 = $_SESSION['perusahaan'];
   $formmenara = mysqli_query($config,"SELECT * FROM tb_form_menara JOIN tb_perusahaan ON tb_form_menara.id_perusahaan = tb_perusahaan.id_perusahaan WHERE tb_perusahaan.nm_perusahaan ='$perusahaan1' AND status_form='tidak_lengkap'");
   $countform = mysqli_num_rows($formmenara);
+  $tipe_akun=$_SESSION['tipe_akun'];
  ?>
 <style >
 
@@ -58,7 +59,7 @@ height: 350px;
                         <i class="typcn typcn-th-large-outline" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
+                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;<?php if ($tipe_akun=="perusahaan") {?>height: 200px;<?php }?>"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 16px; padding-bottom: 18px"><?php echo $_SESSION['username'] ?></h1>
                         <!-- UBAH & SIGNOUT KELUAR -->
@@ -74,6 +75,8 @@ height: 350px;
                         </div>
                         <!-- LIST PERUSAHAAN -->
                             <?php
+                          if ($tipe_akun=="mitra") {
+                            
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
                             <form action="../aksi/user/beranda.php" method="post">
@@ -88,14 +91,16 @@ height: 350px;
                         <!-- TAMBAH PERUSAHAAN -->
 
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
-                            
+                            <?php } ?>
                               </div>
           </li>
         </li>
         </ul>
         </div>
     </nav>
-<?php }else if($_SESSION['riwayat']==2){?>
+<?php }else if($_SESSION['riwayat']==2){
+$tipe_akun=$_SESSION['tipe_akun'];
+  ?>
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">        
 <div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -120,7 +125,7 @@ height: 350px;
                         <i class="far fa-user-circle" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
+                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;<?php if ($tipe_akun=="perusahaan") {?>height: 200px;<?php }?>"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px;padding-bottom: 10px;color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 12px;"><?php echo $_SESSION['username'] ?></h1>
                             <div class="row" style="width: 100%; margin: 0px;">
@@ -136,7 +141,8 @@ height: 350px;
 
 <!-- LIST PERUSAHAAN -->
 
-                            <?php
+                             <?php
+                          if ($tipe_akun=="mitra") {
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
                             <form action="../aksi/user/beranda.php" method="post">
@@ -152,7 +158,7 @@ height: 350px;
                         <!-- TAMBAH PERUSAHAAN -->
 
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
-                            
+                            <?php } ?>
                               </div>
 
         </li>

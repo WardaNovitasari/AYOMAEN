@@ -42,20 +42,24 @@ if($count < 1){
 				$query2=mysqli_query($config,"SELECT * FROM tb_akun JOIN tb_perusahaan ON tb_akun.id_akun=tb_perusahaan.id_akun WHERE username='$username' AND password='$password'");
 				$result2 = mysqli_fetch_array($query2);
 				$nmperusahaan = $result2['nm_perusahaan'];
+				$tipe_akun = $result2['tipe_akun'];
 				$_SESSION['perusahaan']=$nmperusahaan;
 				$_SESSION['username']=$username;
 				$_SESSION['status']=$level;
 				$_SESSION['id_user']=$id_user;
+				$_SESSION['tipe_akun']=$tipe_akun;
 				header("location:../multi.php", true, 301);
 				exit();
 			}else if($tipe='perusahaan'){
 				$query2=mysqli_query($config,"SELECT * FROM tb_akun JOIN tb_perusahaan ON tb_akun.id_akun=tb_perusahaan.id_akun WHERE username='$username' AND password='$password'");
 				$result2 = mysqli_fetch_array($query2);
 				$nmperusahaan = $result2['nm_perusahaan'];
+				$tipe_akun = $result2['tipe_akun'];
 				$_SESSION['username']=$username;
 				$_SESSION['status']=$level;
 				$_SESSION['id_user'];
 				$_SESSION['perusahaan']=$nmperusahaan;
+				$_SESSION['tipe_akun']=$tipe_akun;
 				echo $_SESSION['perusahaan'];
 				header('location:../user/home.php');
 			}
