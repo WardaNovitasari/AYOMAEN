@@ -1,4 +1,7 @@
-  
+<?php
+$tipe_akun=$_SESSION['tipe_akun'];
+// print_r("asaskjahsjh"+$tipe_akun);
+?>
     <style type="text/css">
       .nonaktiv{
         pointer-events: none;
@@ -153,7 +156,7 @@
                         <i class="far fa-user-circle" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
+                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;<?php if ($tipe_akun=="perusahaan") {?>height: 200px;<?php }?>"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
                             <h1 class="d-flex d-lg-flex justify-content-center justify-content-lg-center"
                                 style="color: #2c3e50;font-size: 16px; padding-bottom: 18px"><?php echo $_SESSION['username'] ?></h1>
                         <!-- UBAH & SIGNOUT KELUAR -->
@@ -167,8 +170,9 @@
                             <a href="#" style="text-decoration: none; font-family: Montserrat, sans-serif;font-weight: bold;font-style: normal;" data-toggle="modal" data-target="#logoutModal">Keluar</a>
                           </div>
                         </div>
-                        <!-- LIST PERUSAHAAN -->
-                            <?php
+                        <?php
+                          if ($tipe_akun=="mitra") {
+                            
                                 $query=mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_akun.username = '$username' AND status_aktif='diterima'");
                                 while($tempat=mysqli_fetch_array($query)){ ?>
                             <form action="../aksi/user/beranda.php" method="post">
@@ -183,6 +187,10 @@
                         <!-- TAMBAH PERUSAHAAN -->
 
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
+                          
+                        <?php } ?>
+                        <!-- LIST PERUSAHAAN -->
+                            
                             
                               </div>
           </li>
