@@ -56,7 +56,7 @@ height: 350px;
                     <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
 
                       <span class="d-md-flex text-gray-600 small">
-                        <i class="typcn typcn-th-large-outline" style="font-size: 32px;color: #2c3e50;">
+                        <i class="far fa-user-circle" style="font-size: 32px;color: #2c3e50;">
                         </i></span></a>
                         <div
                             class="dropdown-menu shadow dropdown-menu-right animated--grow-in force-scroll" role="menu" style="width: 300px;<?php if ($tipe_akun=="perusahaan") {?>height: 200px;<?php }?>"><i class="far fa-user-circle d-flex d-lg-flex justify-content-center justify-content-lg-center" style="font-size: 49px;padding-top: 18px; color: #4e73df;"></i>
