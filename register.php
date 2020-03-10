@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Register</title>
+  <title>SB Admin - Buat Akun Baru</title>
 
   <!-- Custom fonts for this template-->
   <link href="admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Buat Akun Baru</div>
       <div class="card-body">
         <form action="aksi/aksi_register.php" method="post">
           <div class="form-group">
@@ -38,7 +38,7 @@
               <div class="col-md-6">
                 <div class="form-label-group">
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" name="email">
-                    <label for="inputEmail">Email address</label>
+                    <label for="inputEmail">Alamat Email</label>
                 </div>
               </div>
                <div class="col-md-2">
@@ -91,11 +91,11 @@
               <label for="password">Password</label>
             </div>
           </div>
-           <button class="btn btn-primary btn-block" type="submit"  onclick="return confirm('Apakah data sudah benar ?')" name="submit" id="submit">Sign Up</button>
+           <button class="btn btn-primary btn-block" type="submit"  onclick="return confirm('Apakah data sudah benar ?')" name="submit" id="submit">Daftar</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.php">Login Page</a>
-          <a class="d-block small" href="#">Forgot Password?</a>
+          <a class="d-block small mt-3" href="login.php">Masuk</a>
+          <a class="d-block small" href="#">Lupa Password?</a>
         </div>
       </div>
     </div>
@@ -119,5 +119,4 @@
   </script>
 
 </body>
-
 </html>
