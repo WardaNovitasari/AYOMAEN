@@ -51,6 +51,14 @@ overflow-y: scroll;
 width: 400px;
 height: 350px;
 }
+
+.force-scroll::-webkit-scrollbar{
+  width: 5px;
+}
+
+.force-scroll::-webkit-scrollbar-thumb{
+  background: #c1c1c1;
+}
 .scrollable-menu {
     
     max-height: 500px;
