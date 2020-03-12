@@ -29,6 +29,7 @@ height: 350px;
   height: 100%;
   overflow: auto;
   }
+
 </style>
  <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">        
 <div id="mySidepanel" class="sidepanel">
@@ -313,6 +314,11 @@ $tipe_akun=$_SESSION['tipe_akun'];
 
 .openbtn:hover {
   color: black;
+}
+@media (max-width: 767px){
+.navbar-nav .open .dropdown-menu {
+  position: absolute;
+  background-color : #fff;
 }
     </style>
 

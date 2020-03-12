@@ -119,8 +119,13 @@ $tipe_akun=$_SESSION['tipe_akun'];
 .openbtn:hover {
   color: black;
 }
-
-
+@media (max-width: 767px){
+.navbar-nav .open 
+.dropdown-menu {
+  position: absolute;
+  background-color : #fff;
+}
+}
     </style>
 
 
@@ -189,10 +194,8 @@ $tipe_akun=$_SESSION['tipe_akun'];
                             <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#tambahperusahaan" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;Tambah Perusahaan</a>
                           
                         <?php } ?>
-                        <!-- LIST PERUSAHAAN -->
-                            
-                            
-                              </div>
+                        <!-- LIST PERUSAHAAN -->           
+               </div>
           </li>
         </li>
         </ul>
