@@ -1,6 +1,13 @@
- <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+<style>
+  .navbar-nav 
+ {
+  background-color : #5c6064;
+  }
 
-    <a class="navbar-brand mr-1" href="index.php">Cleon</a>
+</style>
+ <nav class="navbar navbar-expand navbar-dark bg-abu static-top">
+<img src="img/logo1.png">
+    <!-- <a class="navbar-brand mr-1" href="index.php">Cleon</a> -->
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>

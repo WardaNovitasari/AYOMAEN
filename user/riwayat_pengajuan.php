@@ -103,8 +103,8 @@ session_start();
 
  <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <button class="btn btn-outline-success" type="button">Main button</button>
-    <button class="btn btn-outline-success" type="button">Main button</button>
+    <button class="btn btn-outline-success" type="button">Menara</button>
+    <button class="btn btn-outline-success" type="button">Fiber Optik</button>
   </form>
 </nav>
   <div class="container-fluid">
@@ -121,7 +121,10 @@ session_start();
         <tr>
             <th width="5%">Nomor</th>
             <th>Nomor Surat</th>
+            <th>Jenis Surat</th>
+            <th>Tanggal</th>
             <th>Status Form</th>
+            <th>Ajukan Ulang</th>
         </tr>
 
         <?php

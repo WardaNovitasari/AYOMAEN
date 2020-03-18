@@ -49,7 +49,8 @@ height: 350px;
           <i class="fas fa-bars">
            </i>
            </button>
-            <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
+           <img src="assets/img/logo1.png">
+           <!--  <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1> -->
             <ul class="nav navbar-nav flex-nowrap ml-auto">
                  
                 </li>
@@ -115,7 +116,8 @@ $tipe_akun=$_SESSION['tipe_akun'];
           <i class="fas fa-bars">
            </i>
            </button>
-            <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1>
+           <img src="assets/img/logo1.png">
+            <!-- <h1 class="d-md-flex" style="font-size: 24px;font-weight: bold;color: #4e73df;">CLEON</h1> -->
             <ul class="nav navbar-nav flex-nowrap ml-auto">
                  
                 </li>
