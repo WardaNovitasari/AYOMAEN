@@ -101,27 +101,36 @@ session_start();
 
 <br /><br />
 
- <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <button class="btn btn-outline-success" type="button">Menara</button>
-    <button class="btn btn-outline-success" type="button">Fiber Optik</button>
-  </form>
-</nav>
+ <!-- Breadcrumbs-->
+<div class="container-fluid">
+        <ol class="breadcrumb" style="font-size: 20px">
+          <li class="breadcrumb-item">
+            <a href="riwayat_pengajuan_fo.php">Riwayat Fiber Optik</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="riwayat_pengajuan_menara.php">Riwayat Menara</a>
+          </li>
+          
+        </ol>
+ </div>
+
   <div class="container-fluid">
 
     <div class="card mb-3">
-          <div class="card-header">
+          <div class="card-header"><h4>
             <i class="fas fa-table"></i>
-            Form Pengajuan</div>
+            Riwayat Pengajuan Fiber Optik</h4></div>
           <div class="card-body">
 
          <div class="table-responsive">
               
-               <table class="table table-bordered">
+               <table class="table table-bordered" style="text-align: center;">
         <tr>
-            <th width="5%">Nomor</th>
+            <th width="5%">No</th>
             <th>Nomor Surat</th>
             <th>Status Form</th>
+            <th>Tanggal Surat</th>
+            <th>Aksi</th>
         </tr>
 
         <?php

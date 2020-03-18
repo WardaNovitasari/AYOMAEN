@@ -134,7 +134,7 @@ height: 350px;
           <div class="mt-5">
             <i class="fas fa-4x fa-book text-primary mb-4"></i>
             <h3 class="h4 mb-2">Riwayat Pengajuan</h3>
-           <a href="riwayat_pengajuan.php" class="btn btn-block btn-primary btn-sm">Konfirmasi</a>
+           <a href="riwayat_pengajuan_fo.php" class="btn btn-block btn-primary btn-sm">Konfirmasi</a>
           </div>
         </div>
         <div class="col-lg-2 text-center">
