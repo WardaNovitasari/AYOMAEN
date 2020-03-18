@@ -12,6 +12,26 @@ session_start();
     header("location:404.html");
   }
   $username=$_SESSION['username'];
+  $perusahaan = $_SESSION['perusahaan'];
+
+$cek = mysqli_query($config, "SELECT tgl_rekomendasi FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun JOIN tb_rekomendasi ON tb_tempat_menara.id_tempat=tb_rekomendasi.id_tempat WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='cetak_rekom'");
+
+if(mysqli_num_rows($cek)!=0){
+    $tgl=date('d-m-Y');
+         foreach ($cek as $data) {
+            $tgl_rek = $data['tgl_rekomendasi'];
+            $tgl_exp = date('d-m-Y', strtotime('+30 days', strtotime($tgl_rek)));
+          } 
+    if (strtotime($tgl) > strtotime($tgl_exp)) {
+      mysqli_query($config, "UPDATE tb_tempat_menara SET tb_tempat_menara.status_tempat='rekom_expired' WHERE id_tempat=(SELECT id_tempat FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='irvanjunaidi9@gmail.com' AND tb_perusahaan.nm_perusahaan='PT ABC' AND tb_tempat_menara.status_tempat='cetak_rekom')");
+      echo "expired";
+    }
+}
+
+    //echo $tgl_exp;
+
+
+   
 
 ?>
 <!DOCTYPE html>
