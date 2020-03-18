@@ -1,4 +1,10 @@
-<?php include '../koneksi/koneksi.php';
+<?php
+include '../koneksi/koneksi.php';
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
   if(empty($_SESSION['username'])){
     header("location:login.php");
@@ -6,6 +12,23 @@ session_start();
     header("location:404.html");
   }
   $username=$_SESSION['username'];
+ $perusahaan = $_SESSION['perusahaan'];
+  $riwayat = $_SESSION['riwayat'];
+
+ $query = mysqli_query($config,"SELECT * FROM tb_form_menara JOIN tb_perusahaan ON tb_form_menara.id_perusahaan = tb_perusahaan.id_perusahaan WHERE tb_perusahaan.nm_perusahaan ='$perusahaan' ORDER BY status_form DESC");
+  if($riwayat==1){
+ $link = 'form_input_lokasi.php';//membuka form input menara
+ $link2= "../aksi/user/aksi_kirim_menara.php";// aksi kirim menara
+ $link3="../aksi/user/aksi_delete_menara.php";// aksi delete menara
+ $link4 ="edit_menara.php";
+ $link5 = "menara";
+  }elseif($riwayat==2){
+  $link = 'form_input_fo.php';//membuka form input menara
+  $link2= "../aksi/user/aksi_kirim_fiber.php";//aksi kirim fiber
+   $link3="../aksi/user/aksi_delete_menara.php";// aksi delete fiber
+  $link4 ="edit_fo.php";
+  $link5 = "fiber";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -59,6 +82,7 @@ session_start();
 <!-- partial:index.partial.html -->
 
 <!-- <nav class="navbar navbar-light bg-light static-top">
+
 <ul class="nav-mobile check">
   <li>CLEON</li>        
   <li class="menu-container"> 
@@ -68,39 +92,79 @@ session_start();
       <svg class="icon-close" viewBox="0 0 100 100">
         <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
       </svg> 
-    </label>    -->   
+
+    </label!-->      
     <?php include 'menu_user.php'; ?>
-<!--   </li>
+  <!--</li>
 </ul>
-</nav> -->
+</nav-->
 
 <br /><br />
 
-  <div class="container">
-
-
-  <div class="container">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Edit Password</div>
-      <div class="card-body">
-        <form action="../aksi/edit_password.php" method="post">
-          <div class="form-group">
-              <div class="form-label-group">
-                <input type="password" id="inputEmail" class="form-control" placeholder="Password Baru" required="required" name="pw_baru">
-                <label for="inputEmail">Password Baru</label>
-              </div>
-            </div>
-           <button class="btn btn-primary btn-block" type="submit" name="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
+ <!-- Breadcrumbs-->
+<div class="container-fluid">
+        <ol class="breadcrumb" style="font-size: 20px">
+          <li class="breadcrumb-item">
+            <a href="riwayat_pengajuan_fo.php">Riwayat Fiber Optik</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="riwayat_pengajuan_menara.php">Riwayat Menara</a>
+          </li>
+          
+        </ol>
  </div>
+
+  <div class="container-fluid">
+
+    <div class="card mb-3">
+          <div class="card-header"><h4>
+            <i class="fas fa-table"></i>
+            Riwayat Pengajuan Fiber Optik</h4></div>
+          <div class="card-body">
+
+         <div class="table-responsive">
+              
+               <table class="table table-bordered" style="text-align: center;">
+        <tr>
+            <th width="5%">No</th>
+            <th>Nomor Surat</th>
+            <th>Status Form</th>
+            <th>Tanggal Surat</th>
+            <th>Aksi</th>
+        </tr>
+
+        <?php
+        $no = 1;
+        while($data = mysqli_fetch_assoc($query)){
+        ?>
+                <tr>
+                  <td><p><?php echo $no++ ?>. </p></td>
+                  <td><p><?php echo $data['no_surat'] ?></p></td>
+                  <?php if($data['status_form']=='tidak_lengkap'){ ?>
+                  <td><b><p class="text-danger">Tidak Lengkap, Silahkan Dilengkapi !</p></b></td>
+                <?php } ?>
+                </tr>
+        <?php
+            //include 'modal/modal_info_menara.php';
+            }
+        ?>
+    </table>
+  
+             </div>
+          </div>
+        </div>
+
+         <!-- Sticky Footer -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
 
  <?php include '../modal/logoutmodal.php'; ?>
 
 <!-- partial -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="../script.js"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./script.js"></script>
    <script src="..admin/boostrap/vendor/jquery/jquery.min.js"></script>
   <script src="../admin/boostrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>

@@ -34,19 +34,19 @@ session_start();
        <!-- Icon Cards ketetapan -->
  <?php
 
-  $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form WHERE tb_tempat_fiber.status_tempat='pemeriksaan_berkas' GROUP BY tb_form_fiber.id_form");
+  $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_tempat_fiber.status_tempat='pemeriksaan_berkas' GROUP BY tb_form_fiber.id_form");
   $count1    = mysqli_num_rows($step1);
 
- $step2  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form WHERE tb_tempat_fiber.status_tempat='pengajuan' GROUP BY tb_form_fiber.id_form");
+ $step2  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_tempat_fiber.status_tempat='pengajuan' GROUP BY tb_form_fiber.id_form");
   $count2    = mysqli_num_rows($step2);
 
-  $step3   = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form WHERE tb_tempat_fiber.status_tempat='hasil_survey' GROUP BY tb_form_fiber.id_form");
+  $step3   = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_tempat_fiber.status_tempat='hasil_survey' GROUP BY tb_form_fiber.id_form");
   $count3   = mysqli_num_rows($step3);
 
-  $step4  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form WHERE tb_tempat_fiber.status_tempat='proses_rekom' GROUP BY tb_form_fiber.id_form");
+  $step4  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_tempat_fiber.status_tempat='proses_rekom' GROUP BY tb_form_fiber.id_form");
   $count4   = mysqli_num_rows($step4);
 
-  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form WHERE tb_tempat_fiber.status_tempat='cetak_rekom' GROUP BY tb_form_fiber.id_form");
+  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_fiber ON tb_perusahaan.id_perusahaan = tb_form_fiber.id_perusahaan JOIN tb_tempat_fiber ON tb_form_fiber.id_form=tb_tempat_fiber.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_tempat_fiber.status_tempat='cetak_rekom' GROUP BY tb_form_fiber.id_form");
   $count5   = mysqli_num_rows($step5);
  ?>
          <div id="smartwizard">
@@ -88,7 +88,7 @@ session_start();
                       <td><center><?php echo $fiber['id_form']; ?></center></td>
                       <td><center><?php echo $fiber['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $fiber['nm_user'] ?></center></td>
-                      <td><center><?php echo $fiber['status'] ?></center></td>
+                      <td><center><?php echo $fiber['status_tempat'] ?></center></td>
                       <td><a href="info_fiber.php?id=<?php echo $fiber['id_form'] ?>&step=1" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_fiber.php?id=<?php echo $fiber['id_form'] ?>" class="smaller btn btn-danger" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
@@ -131,7 +131,7 @@ session_start();
                       <td><center><?php echo $fiber['id_form']; ?></center></td>
                       <td><center><?php echo $fiber['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $fiber['nm_user'] ?></center></td>
-                      <td><center><?php echo $fiber['status'] ?></center></td>
+                      <td><center><?php echo $fiber['status_tempat'] ?></center></td>
                       <td><a href="info_fiber.php?id=<?php echo $fiber['id_form'] ?>&step=2" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $fiber['id_form'] ?>" class="smaller btn btn-danger" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
@@ -173,7 +173,7 @@ session_start();
                       <td><center><?php echo $fiber['id_form']; ?></center></td>
                       <td><center><?php echo $fiber['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $fiber['nm_user'] ?></center></td>
-                      <td><center><?php echo $fiber['status'] ?></center></td>
+                      <td><center><?php echo $fiber['status_tempat'] ?></center></td>
                       <td><a href="info_fiber.php?id=<?php echo $fiber['id_form'] ?>&step=3" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $fiber['id_form'] ?>" class="smaller btn btn-danger" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
@@ -215,7 +215,7 @@ session_start();
                       <td><center><?php echo $fiber['id_form']; ?></center></td>
                       <td><center><?php echo $fiber['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $fiber['nm_user'] ?></center></td>
-                      <td><center><?php echo $fiber['status'] ?></center></td>
+                      <td><center><?php echo $fiber['status_tempat'] ?></center></td>
                       <td><a href="info_fiber.php?id=<?php echo $fiber['id_form'] ?>&step=4" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $fiber['id_form'] ?>" class="smaller btn btn-danger disabled" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
