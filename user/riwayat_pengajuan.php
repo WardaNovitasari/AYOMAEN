@@ -103,8 +103,8 @@ session_start();
 
  <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <button class="btn btn-outline-success" type="button">Main button</button>
-    <button class="btn btn-outline-success" type="button">Main button</button>
+    <button class="btn btn-outline-success" type="button">Menara</button>
+    <button class="btn btn-outline-success" type="button">Fiber Optik</button>
   </form>
 </nav>
   <div class="container-fluid">
