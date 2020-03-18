@@ -101,18 +101,25 @@ session_start();
 
 <br /><br />
 
- <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <button class="btn btn-outline-success" type="button">Main button</button>
-    <button class="btn btn-outline-success" type="button">Main button</button>
-  </form>
-</nav>
+ <!-- Breadcrumbs-->
+<div class="container-fluid">
+        <ol class="breadcrumb" style="font-size: 20px">
+          <li class="breadcrumb-item">
+            <a href="#">Riwayat Fiber Optik</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">Riwayat Menara</a>
+          </li>
+          
+        </ol>
+ </div>
+
   <div class="container-fluid">
 
     <div class="card mb-3">
-          <div class="card-header">
+          <div class="card-header"><h4>
             <i class="fas fa-table"></i>
-            Form Pengajuan</div>
+            Riwayat Pengajuan Fiber Optik</h4></div>
           <div class="card-body">
 
          <div class="table-responsive">
