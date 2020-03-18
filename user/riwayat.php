@@ -128,6 +128,7 @@ session_start();
                 <li><a href="#step-2"> <span class="badge badge-primary"><?php echo $count4; ?></span>Step 2<br /><small>Hasil Survey</small></a></li>
                 <li><a href="#step-3"> <span class="badge badge-info"><?php echo $count5; ?></span>Step 3<br /><small>Proses Rekom</small></a></li>
                 <li><a href="#step-4"> <span class="badge badge-info"><?php echo $count6; ?></span>Step 4<br /><small>Cetak Rekom</small></a></li>
+                <li><a href="#step-4"> <span class="badge badge-info"><?php echo $count6; ?></span>Step 4<br /><small>Cetak Rekom</small></a></li>
             </ul>
 
             <div class="row">
@@ -142,6 +143,9 @@ session_start();
                 </div>
                 <div id="step-4" class="col">
                   <?php include 'riwayat/cetak_rekom.php'; ?>
+                </div>
+                <div id="step-5" class="col">
+                  <?php include 'riwayat/rekom_expired.php'; ?>
                 </div>
             </div>
         </div>
