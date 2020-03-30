@@ -38,7 +38,8 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Daftar Akun Baru</h1>
               </div>
-<div class="form-group">
+              <form action="aksi/aksi_register.php" method="post">
+              <div class="form-group">
                 <div class="form-label-group">
                   <label class="h5" for="name">Nama</label>
                   <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required="required" autofocus="autofocus" name="name">
