@@ -174,7 +174,7 @@
                         </div>
                 <div class="col-sm-6 wow fadeInLeft">
                     <div class="skill">
-                       <img class="img-responsive" src="images/towericon.png" style="margin-left: 80px;"></img>
+                       <img class="img-responsive" src="images/twr6.jpg" style="margin-left: 80px;"></img>
                     </div>
                 </div>
 
@@ -226,7 +226,7 @@
                         <ul>
                             <li><a href="../dashboard">Beranda</a></li>
                             <li><a href="peta_menara.php">Peta Menara</a></li>
-                            <li><a href="#">Microcell</a></li>
+                            <li><a href="peta_menara.php">Microcell</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
