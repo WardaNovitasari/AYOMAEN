@@ -9,27 +9,40 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Buat Akun Baru</title>
+  <title>SI PERMEN - Daftar Akun Baru</title>
 
   <!-- Custom fonts for this template-->
-  <link href="admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="bs/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="admin/boostrap/css/sb-admin.css" rel="stylesheet">
+  <link href="bs/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
-<body class="bg-dark">
+<body class="bg-gradient-primary">
 
   <div class="container">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Buat Akun Baru</div>
-      <div class="card-body">
-        <form action="aksi/aksi_register.php" method="post">
-          <div class="form-group">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block center">
+            <a class="small" href="index.php">
+              <img src="bs/img/logo_permen.png" style="margin: 250px 50px 0px 60px;">
+            </a>
+          </div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Daftar Akun Baru</h1>
+              </div>
+<div class="form-group">
                 <div class="form-label-group">
-                  <input type="text" id="name" class="form-control" placeholder="Nama Anda" required="required" autofocus="autofocus" name="name">
-                  <label for="name">Nama</label>
+                  <label class="h5" for="name">Nama</label>
+                  <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required="required" autofocus="autofocus" name="name">
+                
                 </div>
           </div>
 
@@ -37,20 +50,21 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" name="email">
-                    <label for="inputEmail">Alamat Email</label>
+                  <label class="h5" for="inputEmail">Alamat Email</label>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Masukkan alamat email" required="required" name="email">
+              
                 </div>
               </div>
                <div class="col-md-2">
                 <div class="form-label-group">
+                <label class="h5" for="inputnumber2">No. Telp</label>
                 <input type="text" id="inputnumber2" class="form-control" placeholder="+62" required="required" name="no_telepon" disabled="">
-                <label for="inputnumber2">+62</label>
               </div>
               </div>
               <div class="col-md-4">
                   <div class="form-label-group">
-                    <input type="text" id="inputnumber" class="form-control" placeholder="+62" required="required" name="no_telepon" onchange="validate()" onkeypress="return hanyaAngka(event)"> 
-                    <label for="inputnumber">No. Telp</label>
+                    <label class="h5" for="inputnumber"> ㅤㅤ </label>
+                    <input type="text" id="inputnumber" class="form-control" placeholder="8xxxxxxxxx" required="required" name="no_telepon" onchange="validate()" onkeypress="return hanyaAngka(event)"> 
                 </div>
               </div>
             </div>
@@ -60,14 +74,16 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="text" id="inputperusahaan" class="form-control" placeholder="Password" required="required" name="namapt">
-                  <label for="inputperusahaan">Nama Perusahaan</label>
+                  <label class="h5" for="inputperusahaan">Nama Perusahaan</label>
+                  <input type="text" id="inputperusahaan" class="form-control" placeholder="Masukkan nama perusahaan" required="required" name="namapt">
+
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="text" id="alamat" class="form-control" placeholder="Confirm password" required="required" name="alamat">
-                  <label for="alamat">Alamat Perusahaan</label>
+                  <label class="h5" for="alamat">Alamat Perusahaan</label>
+                  <input type="text" id="alamat" class="form-control" placeholder="Masukkan alamat perusahaan" required="required" name="alamat">
+
                 </div>
               </div>
             </div>
@@ -87,8 +103,8 @@
 
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="password" class="form-control" placeholder="password" required="required" name="password">
-              <label for="password">Password</label>
+               <label class="h5" for="password">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Masukkan password" required="required" name="password">
             </div>
           </div>
            <button class="btn btn-primary btn-block" type="submit"  onclick="return confirm('Apakah data sudah benar ?')" name="submit" id="submit">Daftar</button>
@@ -96,27 +112,26 @@
         <div class="text-center">
           <a class="d-block small mt-3" href="login.php">Masuk</a>
           <a class="d-block small" href="#">Lupa Password?</a>
+          <a class="d-block small" href="index.php">Beranda</a>
+        </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="admin/boostrap/vendor/jquery/jquery.min.js"></script>
-  <script src="admin/boostrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="bs/vendor/jquery/jquery.min.js"></script>
+  <script src="bs/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="admin/boostrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="bs/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script type="text/javascript">
-    function hanyaAngka(evt) {
-      var charCode = (evt.which) ? evt.which : event.keyCode
-       if (charCode > 31 && (charCode < 48 || charCode > 57))
- 
-        return false;
-      return true;
-    }
-  </script>
+  <!-- Custom scripts for all pages-->
+  <script src="bs/js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>
