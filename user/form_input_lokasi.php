@@ -37,8 +37,43 @@ session_start();
     $file_size2     = $_FILES['files']['size'];
     $file_tmp2      = $_FILES['files']['tmp_name'];
 
-      if(in_array($file_ext, $allowed_ext) === true && in_array($file_ext2, $allowed_ext2)=== true){
-        if($file_size < 1044070000 && $file_size2 < 1044070000){
+    $allowed_ext3   = array('doc','docx');
+    $file_name3     = $_FILES['surat3']['name'];
+    $fix_name3      = explode('.', $file_name3);
+    @$file_ext3      = strtolower(end(explode('.', $file_name3)));
+    $file_size3     = $_FILES['surat3']['size'];
+    $file_tmp3      = $_FILES['surat3']['tmp_name'];
+
+    $allowed_ext4   = array('doc','docx');
+    $file_name4     = $_FILES['surat4']['name'];
+    $fix_name4      = explode('.', $file_name4);
+    @$file_ext4      = strtolower(end(explode('.', $file_name4)));
+    $file_size4     = $_FILES['surat4']['size'];
+    $file_tmp4      = $_FILES['surat4']['tmp_name'];
+
+    $allowed_ext7   = array('doc','docx');
+    $file_name7     = $_FILES['surat7']['name'];
+    $fix_name7      = explode('.', $file_name7);
+    @$file_ext7      = strtolower(end(explode('.', $file_name7)));
+    $file_size7     = $_FILES['surat7']['size'];
+    $file_tmp7      = $_FILES['surat7']['tmp_name'];
+
+    $allowed_ext8   = array('doc','docx');
+    $file_name8     = $_FILES['surat8']['name'];
+    $fix_name8      = explode('.', $file_name8);
+    @$file_ext8     = strtolower(end(explode('.', $file_name8)));
+    $file_size8     = $_FILES['surat8']['size'];
+    $file_tmp8      = $_FILES['surat8']['tmp_name'];
+
+    $allowed_ext11   = array('doc','docx');
+    $file_name11     = $_FILES['surat11']['name'];
+    $fix_name11      = explode('.', $file_name11);
+    @$file_ext11     = strtolower(end(explode('.', $file_name11)));
+    $file_size11     = $_FILES['surat11']['size'];
+    $file_tmp11      = $_FILES['surat11']['tmp_name'];
+
+      if(in_array($file_ext, $allowed_ext) === true && in_array($file_ext2, $allowed_ext2) === true && in_array($file_ext3, $allowed_ext3)=== true && in_array($file_ext4, $allowed_ext4)=== true && in_array($file_ext7, $allowed_ext7)=== true && in_array($file_ext8, $allowed_ext8) === true && in_array($file_ext11, $allowed_ext11)=== true){
+        if($file_size < 1044070000 && $file_size2 < 1044070000 && $file_size3 < 1044070000 && $file_size4 < 1044070000 && $file_size7 < 1044070000 && $file_size8 < 1044070000 && $file_size11 < 1044070000){
 
           $input=mysqli_query($config,"INSERT INTO tb_form_menara VALUES('','$id','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','$tgl','pemeriksaan','$nomorsurat','$tgl_surat')");
           
@@ -48,13 +83,40 @@ session_start();
           $id_form = $select2['id_form'];
           $nama    = $fix_name[0].'-'.$tgl.'-'.$id_form;//excel
           $nama2   = $fix_name[0].'-'.$tgl.'-'.$id_form;//kmz
+          $nama3   = 'Surat 3'.'-'.$tgl.'-'.$id_form;//doc
+          $nama4   = 'Surat 4'.'-'.$tgl.'-'.$id_form;//doc
+          $nama7   = 'Surat 7'.'-'.$tgl.'-'.$id_form;//doc
+          $nama8   = 'Surat 8'.'-'.$tgl.'-'.$id_form;//doc
+          $nama11   = 'Surat 11'.'-'.$tgl.'-'.$id_form;//doc
           $lokasi  ='../file/menara/excel/'.$nama.'.'.$file_ext;
           $lokasi2 ='../file/menara/KMS/'.$nama.'.'.$file_ext2;
+          $lokasi3 ='../file/menara/doc/'.$nama3.'.'.$file_ext3;
+          $lokasi4 ='../file/menara/doc/'.$nama4.'.'.$file_ext4;
+          $lokasi7 ='../file/menara/doc/'.$nama7.'.'.$file_ext7;
+          $lokasi8 ='../file/menara/doc/'.$nama8.'.'.$file_ext8;
+          $lokasi11 ='../file/menara/doc/'.$nama11.'.'.$file_ext11;
           @chown($lokasi, 0777);
           @chown($lokasi2, 0777);
+          @chown($lokasi3, 0777);
+          @chown($lokasi4, 0777);
+          @chown($lokasi7, 0777);
+          @chown($lokasi8, 0777);
+          @chown($lokasi11, 0777);
           move_uploaded_file($file_tmp2,$lokasi2);
           move_uploaded_file($file_tmp, $lokasi);
-          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama2', '$file_ext2', '$file_size2', '$lokasi2',1)");          
+          move_uploaded_file($file_tmp3, $lokasi3);
+          move_uploaded_file($file_tmp4, $lokasi4);
+          move_uploaded_file($file_tmp7, $lokasi7);
+          move_uploaded_file($file_tmp8, $lokasi8);
+          move_uploaded_file($file_tmp11, $lokasi11);
+          
+
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama2', '$file_ext2', '$file_size2', '$lokasi2',1)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama3', '$file_ext3', '$file_size3', '$lokasi3',3)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama4', '$file_ext4', '$file_size4', '$lokasi4',4)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama7', '$file_ext7', '$file_size7', '$lokasi7',7)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama8', '$file_ext8', '$file_size8', '$lokasi8',8)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama11', '$file_ext11', '$file_size11', '$lokasi11',11)");
           $in = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama', '$file_ext', '$file_size', '$lokasi',2)");
               if($in){
                 echo '<div class="ok">SUCCESS: File berhasil di Upload!</div>';
@@ -205,6 +267,17 @@ for($j=0;$j<$jumlah;$j++){
           <tbody>
             <?php
               $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara'");
+              $query3=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=3");
+              $data3 = mysqli_fetch_assoc($query3);
+              $query4=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=4");
+              $data4 = mysqli_fetch_assoc($query4);
+              $query7=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=7");
+              $data7 = mysqli_fetch_assoc($query7);
+              $query8=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=8");
+              $data8 = mysqli_fetch_assoc($query8);
+              $query11=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=11");
+              $data11 = mysqli_fetch_assoc($query11);
+              //print_r($data2);
               $no = 1;
               while($soal=mysqli_fetch_array($query)){
               ?>
@@ -223,7 +296,27 @@ for($j=0;$j<$jumlah;$j++){
                     <input type="date" name="tgl_surat" required="">
                   <p class="text-primary">File Excel</p>
                   <input type="file" name="file" required="">
-              <?php } else{ ?>
+              <?php } elseif($soal['id']==3){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data3['nm_file']?>" required="">Download</a></p>
+                  <input type="file" name="surat3" required="">
+              <?php }elseif($soal['id']==4){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data4['nm_file']?>" required="">Download</a></p>
+                  <input type="file" name="surat4" required="">
+              <?php }elseif($soal['id']==7){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data7['nm_file']?>" required="">Download</a></p>
+                  <input type="file" name="surat7" required="">
+              <?php }elseif($soal['id']==8){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a></p>
+                  <input type="file" name="surat8" required="">
+              <?php }elseif($soal['id']==11){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
+                  <input type="file" name="surat11" required="">
+              <?php }else{ ?>
               <h5><?php echo $soal['soal'];  ?></h5>
             <?php } ?>
               </td>

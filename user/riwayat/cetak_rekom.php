@@ -4,7 +4,7 @@
       <div class="container-fluid">
  <br>
         <div class="f">
-                <a href="<?php echo $link ?>" class="btn btn-primary "> Tambahkan</a>
+                <!-- <a href="<?php echo $link ?>" class="btn btn-primary "> Tambahkan</a> -->
               </div>
                 <div class="clr"></div>
                 <br>

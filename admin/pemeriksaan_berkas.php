@@ -41,6 +41,13 @@ session_start();
             	<?php
     				$kmz = mysqli_query($config,"SELECT * FROM download WHERE id_form='$id' AND id_tipe=1");
     				$xls = mysqli_query($config,"SELECT * FROM download WHERE id_form='$id' AND id_tipe=2");
+            $pdf = mysqli_query($config,"SELECT * FROM download WHERE id_form='$id' ORDER BY id_tipe ASC");
+            $check = array();
+            while($ini = mysqli_fetch_array($pdf)){
+              array_push($check, $ini);
+            }
+            print_r($check);
+            echo $check[2]['file'];
         			while($excel2=mysqli_fetch_array($xls)){
     			?>
             	<a href="<?php echo $excel2['file'] ?>"><i class="fas fa-file-excel"></i> file.excel</a><br>
@@ -84,6 +91,8 @@ session_start();
         <?php
             include 'modal/modal_info_menara.php';
             }
+            
+            //print_r($data_pdf[2]['id_tipe']);
         ?>
               </table>
                <button class="btn btn-danger" id="close">Close</button>
@@ -114,15 +123,15 @@ session_start();
                 <td><center><input type="checkbox" name="cek[]" value="soal_1"></center></td>
             </tr>
                 <td><center>2</center></td>
-                <td>FC bukti pembayaran PBB tahun berjalan, sertifikat dan surat perjanjian/pernyataan persetujuan penggunaan tanah<br>catatan : untuk persil warga/masyarakat &amp; dijadikan satu per lokasi menara</td>
+                <td>FC bukti pembayaran PBB tahun berjalan, sertifikat dan surat perjanjian/pernyataan persetujuan penggunaan tanah<br>catatan : untuk persil warga/masyarakat &amp; dijadikan satu per lokasi menara.</td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_2"></center></td>
             </tr>
                 <td><center>3</center></td>
-                <td>Surat pernyataan yang menyatakan bahwa Menara Telekomunikasi akan beroperasional paling lambat 18 (delapan belas) bulan sejak Rekomendasi diterbitkan (ttd Pimpinan Perusahaan)<br>catatan : lampiran data titik lokasi menara sesuai pengajuan</td>
+                <td>Surat pernyataan yang menyatakan bahwa Menara Telekomunikasi akan beroperasional paling lambat 18 (delapan belas) bulan sejak Rekomendasi diterbitkan (ttd Pimpinan Perusahaan)<br>catatan : lampiran data titik lokasi menara sesuai pengajuan<br>Download surat pernyataan <a href="<?php echo $check[2]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_3"></center></td>
             </tr>
                 <td><center>4</center></td>
-                <td>Rekomendasi titik lokasi Menara Telekomunikasi, melampirkan srat pernyataan kesanggupan untuk menjadi Menara bersama (ttd Pimpinan Perusahaan)<br>catatan : lampiran data titik lokasi menara sesuai pengajuan</td>
+                <td>Rekomendasi titik lokasi Menara Telekomunikasi, melampirkan srat pernyataan kesanggupan untuk menjadi Menara bersama (ttd Pimpinan Perusahaan)<br>catatan : lampiran data titik lokasi menara sesuai pengajuanDownload surat pernyataan <a href="<?php echo $check[3]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_4"></center></td>
             </tr>
                 <td><center>5</center></td>
@@ -134,11 +143,11 @@ session_start();
                 <td><center><input type="checkbox" name="cek[]" value="soal_6"></center></td>
             </tr>
                 <td><center>7</center></td>
-                <td>Surat pernyataan yang berisi bahwa fotocopy dokumen yang dilampirkan sesuai dengan aslinya (ttd Pimpinan Perusahaan)</td>
+                <td>Surat pernyataan yang berisi bahwa fotocopy dokumen yang dilampirkan sesuai dengan aslinya (ttd Pimpinan Perusahaan)<br>Download surat pernyataan <a href="<?php echo $check[4]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_7"></center></td>
             </tr>
                 <td><center>8</center></td>
-                <td>Surat kuasa atau surat penunjukan untuk mengurus Rekomendasi titik lokasi Menara Telekomunikasi atau jaringan Fiber Optik<br>catatan : apabila dikuasakan pihak lain bukan dari perusahaan &amp; bermatrai Rp 6.000,-</td>
+                <td>Surat kuasa atau surat penunjukan untuk mengurus Rekomendasi titik lokasi Menara Telekomunikasi atau jaringan Fiber Optik<br>catatan : apabila dikuasakan pihak lain bukan dari perusahaan &amp; bermatrai Rp 6.000,-<br>Download surat pernyataan <a href="<?php echo $check[5]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_8"></center></td>
             </tr>
                 <td><center>9</center></td>
@@ -150,7 +159,7 @@ session_start();
                 <td><center><input type="checkbox" name="cek[]" value="soal_10"></center></td>
             </tr>
                 <td><center>11</center></td>
-                <td>Surat pernyataan kesanggupan pemohon untuk bertanggung jawab dan menanggungjawab segala resiko/kerusakan/kerugian pihak lain termasuk pembiayaannya akibat bangunan Menara Telekomunikasi roboh (ttd Pimpinan Perusahaan)<br>catatan : lampiran data menara/fo sesuai pengajuan</td>
+                <td>Surat pernyataan kesanggupan pemohon untuk bertanggung jawab dan menanggungjawab segala resiko/kerusakan/kerugian pihak lain termasuk pembiayaannya akibat bangunan Menara Telekomunikasi roboh (ttd Pimpinan Perusahaan)<br>catatan : lampiran data menara/fo sesuai pengajuan<br>Download surat pernyataan <a href="<?php echo $check[6]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_11"></center></td>
             </tr>
         <?php

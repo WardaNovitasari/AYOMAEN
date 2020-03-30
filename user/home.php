@@ -24,7 +24,7 @@ if(mysqli_num_rows($cek)!=0){
           } 
     if (strtotime($tgl) > strtotime($tgl_exp)) {
       mysqli_query($config, "UPDATE tb_tempat_menara SET tb_tempat_menara.status_tempat='rekom_expired' WHERE id_tempat=(SELECT id_tempat FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='irvanjunaidi9@gmail.com' AND tb_perusahaan.nm_perusahaan='PT ABC' AND tb_tempat_menara.status_tempat='cetak_rekom')");
-      echo "expired";
+      // echo "expired";
     }
 }
 

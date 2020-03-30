@@ -15,13 +15,13 @@ session_start();
 
   $desc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' ORDER BY id_tempat DESC");
     $desc1 = mysqli_fetch_array($desc);
-    $ttl = mysqli_num_rows($desc);
+    $ttl = mysqli_num_rows($desc);
     $asc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' ORDER BY id_tempat ASC");
     $asc1 = mysqli_fetch_array($asc);
     $id2 = $desc1['id_tempat'];
     $id3 = $asc1['id_tempat'];
 $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
-  $dt_pegawai = mysqli_fetch_array($pegawai);
+  $dt_pegawai = mysqli_fetch_array($pegawai);
 
   function tgl_indo($tanggal){
   $bulan = array (
@@ -43,7 +43,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
   // variabel pecahkan 0 = tanggal
   // variabel pecahkan 1 = bulan
   // variabel pecahkan 2 = tahun
- 
+ 
   return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
   ?>
@@ -157,7 +157,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     ?>
 
 <?php
-if($ttl > 1){
+if($ttl > 1){
     if($id >= $id2){
 ?>
           <a href="print_rekom2.php?id=<?php echo $id ?>" class="btn btn-primary" target="_blank"><i class="fas fa-print"></i></a>

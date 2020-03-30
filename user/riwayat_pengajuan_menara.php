@@ -40,11 +40,11 @@ session_start();
   $cek_data1 = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='rekom_expired' OR tb_tempat_menara.status_tempat='pengajuan_ulang' AND tb_form_menara.id_form='$idfrom'");
   $jml_pengajuan = mysqli_num_rows($cek_data1);
   if($jml_pengajuan >= 2){
-      echo "<script>alert('Hanya Dapat Mengajukan Ulang 1 Kali')</script>";
+      echo "<script>alert('Anda telah melakukan pengajuan ulang')</script>";
   }
   else{
-    echo "jajaja";  
-      //$ajukan2 = mysqli_query($config, "INSERT INTO `tb_tempat_menara` (`id_tempat`, `id_form`, `nomor`, `site_id`, `alamat`, `kelurahan`, `kecamatan`, `lat`, `lng`, `lat_hasil`, `lng_hasil`, `tipe_menara`, `tipe_site`, `tinggi`, `status_tempat`, `alasan`, `tgl_disetujui`, `aset_lokasi`, `site_id_hasil`) VALUES ('','$idfrom','$nomor','$site_id','$alamat','$kelurahan','$kecamatan','$lat','$lng','$lat_hasil','$lng_hasil','$tipe_menara','$tipe_site','$tinggi','pengajuan_ulang','$alasan','$tgl_disetujui','$aset_lokasi','$site_id_hasil')");
+    // echo "jajaja";  
+      $ajukan2 = mysqli_query($config, "INSERT INTO `tb_tempat_menara` (`id_tempat`, `id_form`, `nomor`, `site_id`, `alamat`, `kelurahan`, `kecamatan`, `lat`, `lng`, `lat_hasil`, `lng_hasil`, `tipe_menara`, `tipe_site`, `tinggi`, `status_tempat`, `alasan`, `tgl_disetujui`, `aset_lokasi`, `site_id_hasil`) VALUES ('','$idfrom','$nomor','$site_id','$alamat','$kelurahan','$kecamatan','$lat','$lng','$lat_hasil','$lng_hasil','$tipe_menara','$tipe_site','$tinggi','pengajuan_ulang','$alasan','$tgl_disetujui','$aset_lokasi','$site_id_hasil')");
   }
 
   
