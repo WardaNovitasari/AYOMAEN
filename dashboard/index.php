@@ -172,13 +172,13 @@
                 <h2>Ijin Mendirikan Menara Telekomunikasi</h2>
                 <p class="lead">Menjadi Mudah dengan SI PERMEN (Sistem Pelayanan Rekomendasi Infrastruktur Pasif Telekomunikasi) Online</p>
                         </div>
-                <div class="col-sm-6 wow fadeInDown">
+                <div class="col-sm-6 wow fadeInLeft">
                     <div class="skill">
-                       <img class="img-responsive" src="images/twr6.jpg"></img>
+                       <img class="img-responsive" src="images/towericon.png" style="margin-left: 80px;"></img>
                     </div>
                 </div>
 
-                <div class="col-sm-6 wow fadeInDown">
+                <div class="col-sm-6 wow fadeInRight">
                 <div class="fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fa fa-user"></i>
@@ -204,11 +204,11 @@
 
     
     <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="container wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="widget">
-                        <h3>Kontak Kami</h3><br>
+                        <h3>Kontak Kami</h3>
                         <i class="fa fa-phone-square"></i> (0274) 551230<br>
                         <i class="fa fa-phone-square"></i> (0274) 515865<br>
                         <i class="fa fa-phone-square"></i> (0274) 562682<br>
@@ -224,10 +224,9 @@
                     <div class="widget">
                         <h3>Menu Navigasi</h3>
                         <ul>
-                            <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Peta Menara</a></li>
+                            <li><a href="../dashboard">Beranda</a></li>
+                            <li><a href="peta_menara.php">Peta Menara</a></li>
                             <li><a href="#">Microcell</a></li>
-                            <li><a href="#">Pencarian</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->

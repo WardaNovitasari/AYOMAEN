@@ -42,7 +42,7 @@
 
 <!-- INPUT SEARCH -->
 <section id="input-menara">
-    <div class="portfolio-filter text-left" style="padding-left: 10px; padding-right: 10px">
+    <div class="portfolio-filter text-left wow fadeInDown" style="padding-left: 10px; padding-right: 10px">
     <form action="" method="post">
     <div class="row">
         <div class="col-md-3">
@@ -57,8 +57,8 @@
         <h3>Tipe Menara</h3> 
         <select class="form-control" id="tipe" name="">
             <option value="microcell">Microcell</option>
-            <option value="">Saab</option>
-            <option value="">Saab</option>
+            <option value="">Microcell2</option>
+            <option value="">Microcell3</option>
         </select>
         </div>
         <div class="col-md-3" style="padding-top: 45px">
@@ -70,7 +70,7 @@
 
 
 <!-- PETA MENARA -->
-<div class="container-fluid center">
+<div class="container-fluid center wow fadeInUp">
           <p class="text-primary">(Biru) Aktif</p>
           <p class="text-danger">(Merah) Tidak Aktif</p>
         <div id="mapid">
@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="widget">
-                        <h3>Kontak Kami</h3><br>
+                        <h3>Kontak Kami</h3>
                         <i class="fa fa-phone-square"></i> (0274) 551230<br>
                         <i class="fa fa-phone-square"></i> (0274) 515865<br>
                         <i class="fa fa-phone-square"></i> (0274) 562682<br>
@@ -102,10 +102,9 @@
                     <div class="widget">
                         <h3>Menu Navigasi</h3>
                         <ul>
-                            <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Peta Menara</a></li>
-                            <li><a href="#">Microcell</a></li>
-                            <li><a href="#">Pencarian</a></li>
+                            <li><a href="../dashboard">Beranda</a></li>
+                            <li><a href="peta_menara.php">Peta Menara</a></li>
+                            <li><a href="#">Petunjuk Pengguna</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
