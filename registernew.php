@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="bs/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="bs/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -28,7 +28,11 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block"></div>
+          <div class="col-lg-5 d-none d-lg-block center">
+            <a class="small" href="index.php">
+              <img src="bs/img/logo_permen.png" style="margin: 250px 50px 0px 60px;">
+            </a>
+          </div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
@@ -106,8 +110,9 @@
            <button class="btn btn-primary btn-block" type="submit"  onclick="return confirm('Apakah data sudah benar ?')" name="submit" id="submit">Daftar</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.php">Masuk</a>
+          <a class="d-block small mt-3" href="loginnew.php">Masuk</a>
           <a class="d-block small" href="#">Lupa Password?</a>
+          <a class="d-block small" href="index.php">Beranda</a>
         </div>
             </div>
           </div>
