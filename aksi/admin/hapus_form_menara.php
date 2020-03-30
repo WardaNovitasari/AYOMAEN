@@ -8,7 +8,7 @@ require_once('../../koneksi/koneksi.php');
 		$kmz = mysqli_query($config,"SELECT * FROM download WHERE id_form = '$id' AND id_tipe=1");
 		$xls = mysqli_query($config,"SELECT * FROM download WHERE id_form = '$id' AND id_tipe=2");
 		$data1= mysqli_fetch_array($kmz);
-		$data2 = mysqli_fecth_array($xls);
+		$data2 = mysqli_fetch_array($xls);
 		$directori1 = '../'.$data1['file'];
 		$directori2 = '../'.$data2['file'];
 
