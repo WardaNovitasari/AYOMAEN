@@ -98,7 +98,7 @@
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>Selamat Datang di Website SI PERMEN</h2>
-                <p class="lead">Sistem Pelayanan Rekomendasi Infrastruktur</p>
+                <p class="lead">Sistem Pelayanan Rekomendasi Infrastruktur Pasif Telekomunikasi</p>
             </div>
 
             <div class="row">
@@ -106,16 +106,16 @@
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fas fa-broadcast-tower"></i>
-                            <h2>Perijinan Pembangunan Menara</h2>
-                            <h3>Dapat mengajukan perijinan pembangunan menara secara online.</h3>
+                            <h2>Rekomendasi Lokasi Pembangunan Menara</h2>
+                            <h3 style="margin-left: 138px;">Dapat mengajukan rekomendasi lokasi untuk pembangunan menara secara online.</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fa fa-ethernet"></i>
-                            <h2>Perijinan Pemasangan Fiber Optik</h2>
-                            <h3>Dapat mengajukan perijinan pemasangan fiber optik secara online.</h3>
+                            <h2>Rekomendasi Lokasi Pemasangan Fiber Optik</h2>
+                            <h3 style="margin-left: 138px;">Dapat mengajukan rekomendasi lokasi pemasangan fiber optik secara online.</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -123,7 +123,7 @@
                         <div class="feature-wrap">
                             <i class="fa fa-map-o"></i>
                             <h2>Melihat Pemetaan Map Menara</h2>
-                            <h3>Dapat melihat pemetaan menara yang sudah dibangun.</h3>
+                            <h3 style="margin-left: 138px;">Dapat melihat pemetaan menara yang sudah dibangun.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 
@@ -145,7 +145,7 @@
                 <div class="col-sm-6 wow fadeInDown">
                     <div class="skill">
                         
-                        <p style="color: #fff; text-align: justify; font-size: 20px">SIPERMEN merupakan sistem pelayanan rekomendasi infrastruktur pasif telekomunikasi. Sistem pelayanan yang dibuat untuk mempermudah administrasi  pembangunan infrastruktur. Dimana pemohon dapat mengajukan perijinan pembangunan menara online dan perijinan pemasangan fiber optik secara online, serta dapat melihat pemetaan map menara.</p>
+                        <p style="color: #fff; text-align: justify; font-size: 20px">SIPERMEN merupakan sistem pelayanan rekomendasi infrastruktur pasif telekomunikasi. Sistem pelayanan yang dibuat untuk mempermudah administrasi  pembangunan infrastruktur. Dimana pemohon dapat mengajukan rekomendasi lokasi untuk  pembangunan menara online dan pemasangan fiber optik secara online, serta dapat melihat pemetaan map menara.</p>
                     <!-- <a class="btn btn-primary readmore" href="blog-item.html">Selengkapnya <i class="fa fa-angle-right"></i></a> -->
                     </div>
 
@@ -169,7 +169,7 @@
         <div class="container">
             <div class="row">
                     <div class="center wow fadeInDown">
-                <h2>Ijin Mendirikan Menara Telekomunikasi</h2>
+                <h2>Rekomendasi Lokasi Mendirikan Menara Telekomunikasi</h2>
                 <p class="lead">Menjadi Mudah dengan SI PERMEN (Sistem Pelayanan Rekomendasi Infrastruktur Pasif Telekomunikasi) Online</p>
                         </div>
                 <div class="col-sm-6 wow fadeInLeft">
@@ -183,17 +183,18 @@
                         <div class="feature-wrap">
                             <i class="fa fa-user"></i>
                             <h2>Daftar ke SI PERMEN (Sistem Pelayanan Rekomendasi Infrastruktur Pasif Telekomunikasi)</h2>
-                            <h3>Pilih Tombol Login untuk mendaftar.</h3>
+                            <h3>Pilih Tombol Login untuk mendaftar, kemudian daftar akun baru.</h3>
                         </div>
                         <div class="feature-wrap">
                             <i class="fa fa-file-text-o"></i>
                             <h2>Menyiapkan Berkas - Berkas yang dibutuhkan</h2>
-                            <h3>Dibutuhkan untuk diupload pada saat pengajuan perijinan.</h3>
+                            <h3>Berkas tersebut dibutuhkan untuk diupload pada saat pengajuan.
+                            </h3>
                         </div>
                         <div class="feature-wrap">
                             <i class="fa fa-bullhorn"></i>
-                            <h2>Menerima Hasil Laporan setelah pengajuan ijin di setujui oleh admin verifikator</h2>
-                            <h3>Dengan informasi yang ter-update</h3>
+                            <h2>Menerima Hasil Laporan setelah pengajuan lokasi di setujui oleh admin verifikator</h2>
+                            <h3>Dengan informasi yang ter-update dan dapat dipantau.</h3>
                         </div>
                     </div>
                     </div>

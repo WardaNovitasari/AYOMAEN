@@ -260,7 +260,7 @@ for($j=0;$j<$jumlah;$j++){
           <thead class="thead-light">
             <tr>
               <th><center>No</center></th>
-              <th><center>Pertanyaan</center></th>
+              <th><center>Pernyataan</center></th>
             </tr>
           </thead>
          
