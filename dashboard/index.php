@@ -226,7 +226,7 @@
                         <ul>
                             <li><a href="../dashboard">Beranda</a></li>
                             <li><a href="peta_menara.php">Peta Menara</a></li>
-                            <li><a href="peta_menara.php">Microcell</a></li>
+                            <li><a href="#">Microcell</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
