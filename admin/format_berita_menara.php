@@ -26,7 +26,7 @@ $tb_tempat = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_m
 $count_lokasi = mysqli_num_rows($tb_tempat);
 $data_perusahaan = mysqli_fetch_array($tb_perusahaan);
 $validate = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE aset_lokasi='' AND id_form='$id' AND status_tempat='proses_survey'");
-$nums = mysqli_num_rows($validate);
+$nums = mysqli_num_rows($validate);
 function tgl_indo($tanggal){
   $bulan = array (
     1 =>   'Januari',
@@ -43,6 +43,7 @@ function tgl_indo($tanggal){
     'Desember'
   );
   $pecahkan = explode('-', $tanggal);
+
 
   // variabel pecahkan 0 = tanggal
   // variabel pecahkan 1 = bulan
