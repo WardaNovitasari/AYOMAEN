@@ -137,7 +137,7 @@ for($j=0;$j<$jumlah;$j++){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Cleon</title>
+  <title>SI PERMEN</title>
 
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -201,7 +201,7 @@ for($j=0;$j<$jumlah;$j++){
           <thead class="thead-light">
             <tr>
               <th><center>No</center></th>
-              <th><center>Pertanyaan</center></th>
+              <th><center>Pernyataan</center></th>
             </tr>
           </thead>
          
