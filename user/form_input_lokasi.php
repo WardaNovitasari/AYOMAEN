@@ -204,7 +204,7 @@ for($j=0;$j<$jumlah;$j++){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Cleon</title>
+  <title>SI Permen - Pengajuan</title>
 
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

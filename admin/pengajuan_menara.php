@@ -45,7 +45,7 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
   $step4  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='proses_rekom' OR tb_tempat_menara.status_tempat='pengajuan_ulang' GROUP BY tb_form_menara.id_form");
   $count4   = mysqli_num_rows($step4);
 
-  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='cetak_rekom' OR tb_tempat_menara.status_tempat='pengajuan_ulang' GROUP BY tb_form_menara.id_form");
+  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='cetak_rekom' OR tb_tempat_menara.status_tempat='pengajuan_ulang' OR tb_tempat_menara.status_tempat='rekom_terbit' GROUP BY tb_form_menara.id_form");
   $count5   = mysqli_num_rows($step5);
  ?>
          <div id="smartwizard">
@@ -257,7 +257,7 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                       <td><center><?php echo $menara['id_form']; ?></center></td>
                       <td><center><?php echo $menara['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $menara['nm_user'] ?></center></td>
-                      <td><center><?php echo $menara['status_form'] ?></center></td>
+                      <td><center><?php echo $menara['status_tempat'] ?></center></td>
                       <td><a href="tables_tempat.php?id=<?php echo $menara['id_form'] ?>&step=4" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $menara['id_form'] ?>" class="smaller btn btn-danger disabled" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>

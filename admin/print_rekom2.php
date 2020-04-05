@@ -15,9 +15,10 @@ session_start();
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
   $id= $_GET['id'];
+  $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
   $data_rekom = mysqli_fetch_array($rekomendasi);
-  $perusahaan = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form = tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat = '$id'");
+  $perusahaan = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat = '$id'");
   $data_pt = mysqli_fetch_array($perusahaan);
   $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
   $data = mysqli_fetch_array($query);
@@ -78,10 +79,10 @@ session_start();
 	4. Berita Acara Peninjauan Titik Lokasi Penempatan Menara Telekomunikasi Nomor 490/'.$data_pt['id_form'].' Tanggal '.tgl_indo($data_pt['tgl_surat']).'.<br>
 	Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta memberikan rekomendasi titik lokasi menara telekomunikasi kepada '.$data_pt['nm_perusahaan'].' yang beralamatkan '.$data_pt['alamat_perusahaan'].' untuk pembangunan menara telekomunikasi bersama dengan data berikut :
 									<table border="0" class="tbcontainer">
-											<tr><td><p>a. Site ID</p></td><td>:</td><td><p>'.$data['site_id'].'</p></td></tr>
+											<tr><td><p>a. Site ID</p></td><td>:</td><td>'.$data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'].'</td></tr>
 											<tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude '.$data['lat'].' Longitude '.$data['lng'].'</p></td></tr>
 											<tr><td><p>c. Tinggi</p></td><td><p>:</p></td><td> <p> '.$data['tinggi'].' meter</p></td></tr>
-											<tr><td><p>d. Alamat</p></td><td><p>:</td><td><p>Kecamatan '.$data['kecamatan'].' Kelurahan '.$data['kelurahan'].' '.$data['alamat'].'</p></td></tr>
+											<tr><td><p>d. Alamat</p></td><td><p>:</td><td><p>'.$data['alamat'].','.$data['kelurahan'].','.$data['kecamatan'].'</p></td></tr>
 											<tr><td><p>e. Zona</p></td><td><p>:</p></td><td><p> Menara Kamuflase</p></td></tr>
 											<tr><td><p>f. Status Tanah</p></td><td><p>:</p></td><td><p>'.$data['aset_lokasi'].'</p></td></tr>
 											<tr><td><p>g. Penggunaan Aset</p></td><td><p>:</p></td><td><p>'.$data_rekom['nama_dinas'].'</p></td></tr>

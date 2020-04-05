@@ -79,13 +79,13 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
 	Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta memberikan rekomendasi titik lokasi menara telekomunikasi kepada <?php echo $data_pt['nm_perusahaan']?> yang beralamatkan <?php echo $data_pt['alamat_perusahaan'] ?> untuk pembangunan menara telekomunikasi bersama dengan data berikut :
 	<table border="0" class="tbcontainer">
  	<?php
- 		$query = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
+ 		$query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
  		$data = mysqli_fetch_array($query);
  	?>
-	<tr><td><p>a. Site ID</p></td><td>:</td><td><p><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php echo $data['site_id_hasil'] ?>"></p></td></tr>
+	<tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<i><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php echo $data['site_id_hasil'] ?>"></i></td></tr>
 	<tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude <?php echo $data['lat_hasil'] ?>  ; Longitude <?php echo $data['lng_hasil']; ?></p></td></tr>
 	<tr><td><p>c. Tinggi</p></td><td><p>:</p></td><td> <p> <?php echo $data['tinggi'] ?> meter</p></td></tr>
-	<tr><td><p>d. Alamat</p></td><td><p>:</td><td><p>Kecamatan <?php echo $data['kecamatan'] ?> ; Kelurahan <?php echo $data['kelurahan'] ?>  <?php echo $data['alamat'] ?></p></td></tr>
+	<tr><td><p>d. Alamat</p></td><td><p>:</td><td><p><?php echo $data['alamat'] ?>, <?php echo $data['kelurahan'] ?>, <?php echo $data['kecamatan'] ?></p></td></tr>
 	<tr><td><p>e. Zona</p></td><td><p>:</p></td><td><p> Menara Kamuflase</p></td></tr>
 	<tr><td><p>f. Status Tanah</p></td><td><p>:</p></td><td><p><?php echo $data['aset_lokasi'] ?></p></td></tr>
 	<tr><td><p>g. Penggunaan Aset</p></td><td><p>:</p></td><td><?php if($data['aset_lokasi']=="Aset Pemkot Yogyakarta"){ ?>
