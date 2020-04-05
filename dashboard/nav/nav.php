@@ -15,7 +15,7 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="../dashboard">Beranda</a></li>
-                        <li><a href="peta_menara.php">Petunjuk Pengguna</a></li> 
+                        <li><a href="petunjuk_pengguna.php">Petunjuk Pengguna</a></li> 
                         <li><a href="peta_menara.php">Peta Menara</a></li>
                     </ul>
                 </div>

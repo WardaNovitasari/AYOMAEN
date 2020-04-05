@@ -204,7 +204,7 @@ for($j=0;$j<$jumlah;$j++){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SI Permen - Pengajuan</title>
+  <title>SI PERMEN</title>
 
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -236,6 +236,34 @@ for($j=0;$j<$jumlah;$j++){
     <link href="boostrap2/dist/css/smart_wizard_theme_circles.css" rel="stylesheet" type="text/css" />
     <link href="boostrap2/dist/css/smart_wizard_theme_arrows.css" rel="stylesheet" type="text/css" />
     <link href="boostrap2/dist/css/smart_wizard_theme_dots.css" rel="stylesheet" type="text/css" />
+
+<!-- AJAX 10 dan 11 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+<script type='text/javascript'>
+$(window).load(function(){
+  $("#showhide1").css("display","none");
+ 
+$('#clickme').change(function(){
+  if (this.checked) {
+    $('#showhide1').fadeIn('slow');
+  } 
+  else {
+    $('#showhide1').fadeOut('slow');
+  }  
+});
+  $("#showhide2").css("display","none");
+ 
+$('#clickme').change(function(){
+  if (this.checked) {
+    $('#showhide2').fadeIn('slow');
+  } 
+  else {
+    $('#showhide2').fadeOut('slow');
+  }  
+});
+});
+</script>
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -260,7 +288,7 @@ for($j=0;$j<$jumlah;$j++){
           <thead class="thead-light">
             <tr>
               <th><center>No</center></th>
-              <th><center>Pertanyaan</center></th>
+              <th><center>Pernyataan</center></th>
             </tr>
           </thead>
          
@@ -284,10 +312,34 @@ for($j=0;$j<$jumlah;$j++){
             <tr>
               <td><center><?php echo $no++ ?></center></td>
               <td>
-                <?php if($soal['id_tipe']==1){?>
+              <?php if($soal['id_tipe']==1){?>
                   <h5><?php echo $soal['soal']; ?></h5>
                   <p class="text-primary">File KMZ</p>
                   <input type="file" name="files" required="">  
+
+<!-- AJAX 10-11 -->
+<tr>
+<td colspan="2" style="color: red;">
+<input type="checkbox" name="clickme" id="clickme"> *Ceklist jika tinggi menara lebih dari 6 meter.
+  
+  <p id="showhide1">
+    <?php }elseif($soal['id']==10){ ?>
+  <div id="showhide1">
+                <h5><?php echo $soal['soal'];?></h5>
+  </div>
+
+  
+    <?php }elseif($soal['id']==11){ ?>
+  <div id="showhide2">
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
+                <input type="file" name="surat11" required=""> 
+  </div>
+</td>
+</tr>
+
+
+
               <?php }elseif($soal['id_tipe']==2){ ?>
                   <h5><?php echo $soal['soal']; ?></h5>
                   <label>No Surat</label>
@@ -312,10 +364,9 @@ for($j=0;$j<$jumlah;$j++){
                 <h5><?php echo $soal['soal'];?></h5>
                 <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a></p>
                   <input type="file" name="surat8" required="">
-              <?php }elseif($soal['id']==11){ ?>
-                <h5><?php echo $soal['soal'];?></h5>
-                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
-                  <input type="file" name="surat11" required="">
+
+
+
               <?php }else{ ?>
               <h5><?php echo $soal['soal'];  ?></h5>
             <?php } ?>
