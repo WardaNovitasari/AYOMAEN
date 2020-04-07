@@ -13,7 +13,7 @@ session_start();
   $perusahaan = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form = tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat = '$id'");
   $data_pt = mysqli_fetch_array($perusahaan);
 
-  $desc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' ORDER BY id_tempat DESC");
+  $desc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' OR status_tempat='rekom_terbit' AND id_form='$iform' ORDER BY id_tempat DESC");
     $desc1 = mysqli_fetch_array($desc);
     $ttl = mysqli_num_rows($desc);
     $asc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' ORDER BY id_tempat ASC");
@@ -79,10 +79,16 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
 	Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta memberikan rekomendasi titik lokasi menara telekomunikasi kepada <?php echo $data_pt['nm_perusahaan']?> yang beralamatkan <?php echo $data_pt['alamat_perusahaan'] ?> untuk pembangunan menara telekomunikasi bersama dengan data berikut :
 	<table border="0" class="tbcontainer">
  	<?php
+    $querysite = mysqli_query($config,"SELECT max(site_id_hasil) as maxSite FROM tb_tempat_menara");
+    $datasite = mysqli_fetch_array($querysite);
+    $sitebaru = $datasite['maxSite'];
+    $nourut = substr($sitebaru, 3, 4); // contoh JRD0004, angka 3 adalah awal pengambilan angka, dan 4 jumlah angka yang diambil
+    $nourut++; 
+    $siteidhasil = sprintf("%04s", $nourut) ;
  		$query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
  		$data = mysqli_fetch_array($query);
  	?>
-	<tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<i><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php echo $data['site_id_hasil'] ?>"></i></td></tr>
+	<tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<i><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php if($data['site_id_hasil']==NULL){echo $siteidhasil;}else{echo $data['site_id_hasil'];} ?>"></i></td></tr>
 	<tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude <?php echo $data['lat_hasil'] ?>  ; Longitude <?php echo $data['lng_hasil']; ?></p></td></tr>
 	<tr><td><p>c. Tinggi</p></td><td><p>:</p></td><td> <p> <?php echo $data['tinggi'] ?> meter</p></td></tr>
 	<tr><td><p>d. Alamat</p></td><td><p>:</td><td><p><?php echo $data['alamat'] ?>, <?php echo $data['kelurahan'] ?>, <?php echo $data['kecamatan'] ?></p></td></tr>
@@ -93,11 +99,13 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
         <?php
           $dinas = mysqli_query($config,"SELECT * FROM tb_dinas");
           while($dt = mysqli_fetch_array($dinas)){
-        ?>
+        ?>    
+
               <option value='<?php echo $dt['id_dinas'] ?>'><?php echo $dt['nama_dinas']?></option>
         <?php
           }
         ?>
+
       </select>
 		<?php }else{ ?>
 			<p> - </p>

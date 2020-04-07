@@ -15,11 +15,23 @@ session_start();
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
   $id= $_GET['id'];
+
   $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
   $data_rekom = mysqli_fetch_array($rekomendasi);
   $perusahaan = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat = '$id'");
   $data_pt = mysqli_fetch_array($perusahaan);
+  $cek = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
+   $hslcek = mysqli_fetch_assoc($cek);
+   if ($hslcek['site_id_hasil']==NULL) {
+     $querysite = mysqli_query($config,"SELECT max(site_id_hasil) as maxSite FROM tb_tempat_menara");
+    $datasite = mysqli_fetch_array($querysite);
+    $sitebaru = $datasite['maxSite'];
+    $nourut = substr($sitebaru, 3, 4);
+    $nourut++; 
+    $siteidhasil = sprintf("%04s", $nourut) ;
+    $siteupdate = mysqli_query($config, "UPDATE tb_tempat_menara SET site_id_hasil='$siteidhasil' WHERE id_tempat='$id'");
+   }
   $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
   $data = mysqli_fetch_array($query);
   $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
@@ -47,6 +59,7 @@ session_start();
   // variabel pecahkan 2 = tahun
 
   return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+  
 }
 
  $html = '<!DOCTYPE html>

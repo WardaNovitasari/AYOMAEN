@@ -72,7 +72,117 @@ session_start();
     $file_size11     = $_FILES['surat11']['size'];
     $file_tmp11      = $_FILES['surat11']['tmp_name'];
 
-      if(in_array($file_ext, $allowed_ext) === true && in_array($file_ext2, $allowed_ext2) === true && in_array($file_ext3, $allowed_ext3)=== true && in_array($file_ext4, $allowed_ext4)=== true && in_array($file_ext7, $allowed_ext7)=== true && in_array($file_ext8, $allowed_ext8) === true && in_array($file_ext11, $allowed_ext11)=== true){
+    if (in_array($file_ext11, $allowed_ext11)=== false) {
+      # code...
+      if(in_array($file_ext, $allowed_ext) === true && in_array($file_ext2, $allowed_ext2) === true && in_array($file_ext3, $allowed_ext3)=== true && in_array($file_ext4, $allowed_ext4)=== true && in_array($file_ext7, $allowed_ext7)=== true && in_array($file_ext8, $allowed_ext8) === true){
+        if($file_size < 1044070000 && $file_size2 < 1044070000 && $file_size3 < 1044070000 && $file_size4 < 1044070000 && $file_size7 < 1044070000 && $file_size8 < 1044070000){
+
+          $input=mysqli_query($config,"INSERT INTO tb_form_menara VALUES('','$id','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','$tgl','pemeriksaan','$nomorsurat','$tgl_surat')");
+          
+          if($input){
+          $select = mysqli_query($config,"SELECT * FROM tb_form_menara WHERE id_perusahaan='$id' ORDER BY id_form DESC");
+          $select2=mysqli_fetch_array($select);
+          $id_form = $select2['id_form'];
+          $nama    = $fix_name[0].'-'.$tgl.'-'.$id_form;//excel
+          $nama2   = $fix_name[0].'-'.$tgl.'-'.$id_form;//kmz
+          $nama3   = 'Surat 3'.'-'.$tgl.'-'.$id_form;//doc
+          $nama4   = 'Surat 4'.'-'.$tgl.'-'.$id_form;//doc
+          $nama7   = 'Surat 7'.'-'.$tgl.'-'.$id_form;//doc
+          $nama8   = 'Surat 8'.'-'.$tgl.'-'.$id_form;//doc
+          $nama11   = 'Surat 11'.'-'.$tgl.'-'.$id_form;//doc
+          $lokasi  ='../file/menara/excel/'.$nama.'.'.$file_ext;
+          $lokasi2 ='../file/menara/KMS/'.$nama.'.'.$file_ext2;
+          $lokasi3 ='../file/menara/doc/'.$nama3.'.'.$file_ext3;
+          $lokasi4 ='../file/menara/doc/'.$nama4.'.'.$file_ext4;
+          $lokasi7 ='../file/menara/doc/'.$nama7.'.'.$file_ext7;
+          $lokasi8 ='../file/menara/doc/'.$nama8.'.'.$file_ext8;
+          //$lokasi11 ='../file/menara/doc/'.$nama11.'.'.$file_ext11;
+          @chown($lokasi, 0777);
+          @chown($lokasi2, 0777);
+          @chown($lokasi3, 0777);
+          @chown($lokasi4, 0777);
+          @chown($lokasi7, 0777);
+          @chown($lokasi8, 0777);
+          @chown($lokasi11, 0777);
+          move_uploaded_file($file_tmp2,$lokasi2);
+          move_uploaded_file($file_tmp, $lokasi);
+          move_uploaded_file($file_tmp3, $lokasi3);
+          move_uploaded_file($file_tmp4, $lokasi4);
+          move_uploaded_file($file_tmp7, $lokasi7);
+          move_uploaded_file($file_tmp8, $lokasi8);
+          //move_uploaded_file($file_tmp11, $lokasi11);
+          
+
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama2', '$file_ext2', '$file_size2', '$lokasi2',1)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama3', '$file_ext3', '$file_size3', '$lokasi3',3)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama4', '$file_ext4', '$file_size4', '$lokasi4',4)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama7', '$file_ext7', '$file_size7', '$lokasi7',7)");
+          $in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama8', '$file_ext8', '$file_size8', '$lokasi8',8)");
+          //$in2 = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama11', '$file_ext11', '$file_size11', '$lokasi11',11)");
+          $in = mysqli_query($config,"INSERT INTO download VALUES('','$id_form', '$tgl', '$nama', '$file_ext', '$file_size', '$lokasi',2)");
+              if($in){
+                echo '<div class="ok">SUCCESS: File berhasil di Upload!</div>';
+                require '../file/excel_reader.php';
+                $data       = new Spreadsheet_Excel_Reader($lokasi,$nama);
+                $baris    = $data->rowcount($sheet_index=0);
+
+                if(!$baris){
+      //echo '<script>window.location="javascript: history.go(-1)"</script>';
+              }
+        $nomor1      = [];
+    $site_id1    = [];
+ $alamat1     = [];
+ $kelurahan1  = [];
+ $kecamatan1  = [];
+ $lat1    = [];
+ $long1       = [];
+ $tipe_menara1  = [];
+ $tinggi1     = [];
+ for ($i=3; $i<=$baris; $i++){
+      $nomor            = $data->val($i, 1);
+      $site_id          = $data->val($i, 2);
+      $alamat           = $data->val($i, 3);
+      $kelurahan        = $data->val($i, 4);
+      $kecamatan        = $data->val($i, 5);
+      $lat              = $data->val($i, 6);
+      $long             = $data->val($i, 7);
+      $tipe_menara      = $data->val($i, 8);
+      $tinggi           = $data->val($i, 9);
+      if($nomor == ''){
+            break;
+      }else{
+      array_push($nomor1    , $nomor);
+      array_push($site_id1    , $site_id);
+      array_push($alamat1   , $alamat);
+      array_push($kelurahan1        , $kelurahan);
+      array_push($kecamatan1        , $kecamatan);
+      array_push($lat1      , $lat);
+      array_push($long1     , $long);
+      array_push($tipe_menara1  , $tipe_menara);
+      array_push($tinggi1   , $tinggi);
+}
+}
+$jumlah = count($nomor1);
+for($j=0;$j<$jumlah;$j++){
+  $insert = mysqli_query($config,"INSERT INTO tb_tempat_menara VALUES('','$id_form','$nomor1[$j]','$site_id1[$j]','$alamat1[$j]','$kelurahan1[$j]','$kecamatan1[$j]','$lat1[$j]','$long1[$j]','','','$tipe_menara1[$j]','','$tinggi1[$j]','pengajuan','','','','')");
+}
+    echo '<script>alert("Data berhasil diajukan ! ");window.location.href="riwayat.php"</script>';
+              }else{
+                echo '<div class="error">ERROR: Gagal upload file!</div>';
+              }
+          }else{
+            echo 'error';
+          }
+        }else{
+          echo '<div class="error">ERROR: Besar ukuran file (file size) maksimal 1 Mb!</div>';
+        }
+      }else{
+        echo '<div class="error">ERROR: Ekstensi file tidak di izinkan!</div>';
+      }
+
+    }
+    else{
+        if(in_array($file_ext, $allowed_ext) === true && in_array($file_ext2, $allowed_ext2) === true && in_array($file_ext3, $allowed_ext3)=== true && in_array($file_ext4, $allowed_ext4)=== true && in_array($file_ext7, $allowed_ext7)=== true && in_array($file_ext8, $allowed_ext8) === true && in_array($file_ext11, $allowed_ext11)=== true){
         if($file_size < 1044070000 && $file_size2 < 1044070000 && $file_size3 < 1044070000 && $file_size4 < 1044070000 && $file_size7 < 1044070000 && $file_size8 < 1044070000 && $file_size11 < 1044070000){
 
           $input=mysqli_query($config,"INSERT INTO tb_form_menara VALUES('','$id','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','Tidak','$tgl','pemeriksaan','$nomorsurat','$tgl_surat')");
@@ -139,7 +249,7 @@ session_start();
  for ($i=3; $i<=$baris; $i++){
       $nomor            = $data->val($i, 1);
       $site_id          = $data->val($i, 2);
-      $alamat          	= $data->val($i, 3);
+      $alamat           = $data->val($i, 3);
       $kelurahan        = $data->val($i, 4);
       $kecamatan        = $data->val($i, 5);
       $lat              = $data->val($i, 6);
@@ -178,6 +288,9 @@ for($j=0;$j<$jumlah;$j++){
         echo '<div class="error">ERROR: Ekstensi file tidak di izinkan!</div>';
       }
 
+    }
+
+      
    /* $soal1  = $_POST["soal[1]"];
     $soal2  = $_POST['soal_2'];
     $soal3  = $_POST['soal_3'];
@@ -192,6 +305,7 @@ for($j=0;$j<$jumlah;$j++){
     $data = new Spreadsheet_Excel_Reader($_FILES['filepegawaiall']['tmp_name'],false);*/
     
 //    menghitung jumlah baris file xls   
+
   }
   
 ?>
@@ -310,7 +424,7 @@ $('#clickme').change(function(){
               while($soal=mysqli_fetch_array($query)){
               ?>
             <tr>
-              <td><center><?php echo $no++ ?></center></td>
+              <td><center><?php echo $no++ ?></center>
               <td>
               <?php if($soal['id_tipe']==1){?>
                   <h5><?php echo $soal['soal']; ?></h5>
@@ -322,7 +436,7 @@ $('#clickme').change(function(){
 <td colspan="2" style="color: red;">
 <input type="checkbox" name="clickme" id="clickme"> *Ceklist jika tinggi menara lebih dari 6 meter.
   
-  <p id="showhide1">
+  
     <?php }elseif($soal['id']==10){ ?>
   <div id="showhide1">
                 <h5><?php echo $soal['soal'];?></h5>
@@ -333,7 +447,7 @@ $('#clickme').change(function(){
   <div id="showhide2">
                 <h5><?php echo $soal['soal'];?></h5>
                 <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
-                <input type="file" name="surat11" required=""> 
+                <input type="file" name="surat11"> 
   </div>
 </td>
 </tr>

@@ -63,7 +63,7 @@ session_start();
         }elseif($step==3){
             $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='proses_rekom'";
         }elseif($step==4){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='cetak_rekom' OR tb_tempat_menara.status_tempat='rekom_terbit' OR tb_tempat_menara.status_tempat='pengajuan_ulang'";
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id'AND tb_tempat_menara.status_tempat='cetak_rekom' AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='rekom_terbit'  AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='pengajuan_ulang'";
         }
         $menara = mysqli_query($config,$sql);
         while($data = mysqli_fetch_assoc($menara)){
@@ -108,8 +108,7 @@ session_start();
                 </td>
                 <td class="edit_td"><?php echo $data['status_tempat'] ?></td>
                 <td class="edit_td"><a href="" id="tolakuy" class="tolak"data-type="text" data-pk="<?php echo $data['id_tempat'] ?>" data-name="alasan"><?php echo $data['alasan'] ?></a></td>
-
-                <?php if($data['status_tempat']=='cetak_rekom'){ ?>
+                <?php if($data['status_tempat']=='cetak_rekom' || $data['status_tempat']=='rekom_terbit'){ ?>
                     <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></td>
                 <?php }else{ ?>
                 <td><a href="" class="btn btn-primary btn-sm tolak"  data-toggle="modal" data-target="#myModal<?php echo $data['id_tempat']?>">Cek</a></td>

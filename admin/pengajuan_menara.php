@@ -244,6 +244,8 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                         <th><center>Nama Perusahaan</center></th>
                         <th><center>Nama Pengaju</center></th>
                         <th><center>Status</center></th>
+                        <th><center>Nama Penerima</center></th>
+                        <th><center>Tanggal Terima</center></th>
                         <th colspan="2"><center>Aksi</center></th>
                       </tr>
                     </thead>
@@ -258,6 +260,8 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                       <td><center><?php echo $menara['nm_perusahaan'] ?></center></td>
                       <td><center><?php echo $menara['nm_user'] ?></center></td>
                       <td><center><?php echo $menara['status_tempat'] ?></center></td>
+                      <th><center></center></th>
+                        <th><center></center></th>
                       <td><a href="tables_tempat.php?id=<?php echo $menara['id_form'] ?>&step=4" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $menara['id_form'] ?>" class="smaller btn btn-danger disabled" onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
