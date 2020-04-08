@@ -46,7 +46,6 @@ session_start();
             while($ini = mysqli_fetch_array($pdf)){
               array_push($check, $ini);
             }
-            print_r($check);
             echo $check[2]['file'];
         			while($excel2=mysqli_fetch_array($xls)){
     			?>
@@ -82,10 +81,10 @@ session_start();
                 <td><?php echo $data['kecamatan'] ?></td>
                 <td><?php echo $data['lat'] ?></td>
                 <td><?php echo $data['lng'] ?></td>
-                <td>Tipe Menara</td>
-                <td>Tinggi</td>
-                <td>Status</td>
-                <td>Keterangan</td>
+                <td><?php echo $data['tipe_menara'] ?></td>
+                <td><?php echo $data['tinggi'] ?></td>
+                <td><?php echo $data['status_tempat'] ?></td>
+                <td><?php echo $data['alasan'] ?></td>
             </tr>
 
         <?php
@@ -119,7 +118,7 @@ session_start();
           <input type="hidden" name="id_form" value="<?php echo $idform ?>">
             <tr>
                 <td><center>1</center></td>
-                <td>Surat permohonan rekomendasi kepada Kepala Dinas Komunikasi Informatika dan Persandian (ttd Pimpinan Perusahaan)<br>catatan : memuat no surat, tanggal surat, data perusahaan dan lampiran data titik lokasi menara/fo</td>
+                <td>Surat permohonan rekomendasi kepada Kepala Dinas Komunikasi Informatika dan Persandian (ttd Pimpinan Perusahaan)<br>catatan : memuat no surat, tanggal surat, data perusahaan dan lampiran data titik lokasi menara/fo<br>Download surat pernyataan <a href="<?php echo $check[5]['file'] ?>">Disini</a></td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_1"></center></td>
             </tr>
                 <td><center>2</center></td>
@@ -147,7 +146,7 @@ session_start();
                 <td><center><input type="checkbox" name="cek[]" value="soal_7"></center></td>
             </tr>
                 <td><center>8</center></td>
-                <td>Surat kuasa atau surat penunjukan untuk mengurus Rekomendasi titik lokasi Menara Telekomunikasi atau jaringan Fiber Optik<br>catatan : apabila dikuasakan pihak lain bukan dari perusahaan &amp; bermatrai Rp 6.000,-<br>Download surat pernyataan <a href="<?php echo $check[5]['file'] ?>">Disini</a></td>
+                <td>Surat kuasa atau surat penunjukan untuk mengurus Rekomendasi titik lokasi Menara Telekomunikasi atau jaringan Fiber Optik<br>catatan : apabila dikuasakan pihak lain bukan dari perusahaan &amp; bermatrai Rp 6.000,-</td>
                 <td><center><input type="checkbox" name="cek[]" value="soal_8"></center></td>
             </tr>
                 <td><center>9</center></td>

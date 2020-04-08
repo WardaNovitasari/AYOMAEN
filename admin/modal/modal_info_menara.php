@@ -39,36 +39,21 @@ $lng = $tempat2['lng'];
                       <p>Bersinggungan dengan <b class="text-danger"><?php echo $lokasi2_nama ?></b> <a href="map.php?id1=<?php echo $tempat['id_tempat'] ?>&id2=<?php echo $id ?>" class="text-primary" target='_blank'>Open Maps</a></p><br>
                     </li>
                   </ul>
-                  <div class="modal-footer">
-                      <a class="btn btn-danger" href="../aksi/admin/revisi.php?id=<?php echo $data['id_tempat']; ?>&status=<?php echo $data['status_tempat'] ?>&id_form=<?php echo $data['id_form']?>">Revisi</a>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  </div>
-                     <?php
-                    }else{ ?>
-                    <p>Tidak Ada Informasi Bersinggungan</p>
-                      <!-- Modal footer -->
-                <div class="modal-footer">
-                  
-                      <a href="../aksi/admin/acc_tempat_menara.php?id=<?php echo $data['id_tempat']; ?>&status=<?php echo $data['status_tempat'] ?>&id_form=<?php echo $data['id_form']?>" class="btn btn-success" onclick="return confirm('Anda yakin mau menerima lokasi ini ?')"><i class="fas fa-check"></i></a>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-                  <?php }
-
-                    
+                      <?php
+                    }
             }
           }
 
         }else{
-          ?>
-          
-          <?php
 
         }
     ?>
       </div>
 
       <!-- Modal footer -->
-      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
 
     </div>
   </div>

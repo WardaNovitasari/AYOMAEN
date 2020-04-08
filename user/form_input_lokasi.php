@@ -394,7 +394,7 @@ $('#clickme').change(function(){
     <div class="container">
       <h1 class="mb-5 text-center"><?php echo $_SESSION['perusahaan'] ?></h1>
       <h2 class="mb-5 text-center">Form Input Menara</h2>
-      <div class="row">  
+      <div class="row">
           <div class="container-fluid">
              <form name="myForm" id="myForm" action="" method="post" enctype="multipart/form-data">
             <p>Silahkan download format file excel disini <a href="../Upload.xls" required="">Download</a></p>
@@ -402,7 +402,7 @@ $('#clickme').change(function(){
           <thead class="thead-light">
             <tr>
               <th><center>No</center></th>
-              <th><center>Pernyataan</center></th>
+              <th><center>Persyaratan</center></th>
             </tr>
           </thead>
          
@@ -424,7 +424,7 @@ $('#clickme').change(function(){
               while($soal=mysqli_fetch_array($query)){
               ?>
             <tr>
-              <td><center><?php echo $no++ ?></center>
+              <td><center><?php echo $no++ ?></center></td>
               <td>
               <?php if($soal['id_tipe']==1){?>
                   <h5><?php echo $soal['soal']; ?></h5>
@@ -456,12 +456,16 @@ $('#clickme').change(function(){
 
               <?php }elseif($soal['id_tipe']==2){ ?>
                   <h5><?php echo $soal['soal']; ?></h5>
+                  <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a></p>
+                  
                   <label>No Surat</label>
                   <input type="text" name="no_surat" required="">
                    <label>Tgl Surat</label>
                     <input type="date" name="tgl_surat" required="">
                   <p class="text-primary">File Excel</p>
-                  <input type="file" name="file" required="">
+                  <input type="file" name="file" required=""><br>
+                  <p class="text-primary">File Surat</p>
+                  <input type="file" name="surat8" required="">
               <?php } elseif($soal['id']==3){ ?>
                 <h5><?php echo $soal['soal'];?></h5>
                 <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data3['nm_file']?>" required="">Download</a></p>
@@ -476,8 +480,7 @@ $('#clickme').change(function(){
                   <input type="file" name="surat7" required="">
               <?php }elseif($soal['id']==8){ ?>
                 <h5><?php echo $soal['soal'];?></h5>
-                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a></p>
-                  <input type="file" name="surat8" required="">
+                
 
 
 

@@ -113,7 +113,7 @@ session_start();
                 <?php }else{ ?>
                 <td><a href="" class="btn btn-primary btn-sm tolak"  data-toggle="modal" data-target="#myModal<?php echo $data['id_tempat']?>">Cek</a></td>
                 <?php if($data['status_tempat']!='cetak_rekom'){?>
-                <td><!-- <a href="../aksi/admin/acc_tempat_menara.php?id=<?php echo $data['id_tempat']; ?>&status=<?php echo $data['status_tempat'] ?>&id_form=<?php echo $data['id_form']?>" class="btn btn-success btn-sm disabled" onclick="return confirm('Anda yakin mau menerima lokasi ini ?')"><i class="fas fa-check"></i></a> --></td>
+                <td><a href="../aksi/admin/acc_tempat_menara.php?id=<?php echo $data['id_tempat']; ?>&status=<?php echo $data['status_tempat'] ?>&id_form=<?php echo $data['id_form']?>" class="btn btn-success btn-sm" onclick="return confirm('Anda yakin mau menerima lokasi ini ?')"><i class="fas fa-check"></i></a></td>
                 <?php } else {?>
                 <td><a href="../aksi/admin/acc_tempat_menara.php?id=<?php echo $data['id_tempat']; ?>&status=<?php echo $data['status_tempat'] ?>&id_form=<?php echo $data['id_form']?>" class="btn btn-success btn-sm disabled" onclick="return confirm('Anda yakin mau menerima lokasi ini ?')"><i class="fas fa-check"></i></a></td>
                 <?php } ?>

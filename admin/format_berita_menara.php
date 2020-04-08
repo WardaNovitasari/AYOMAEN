@@ -26,7 +26,7 @@ $tb_tempat = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_m
 $count_lokasi = mysqli_num_rows($tb_tempat);
 $data_perusahaan = mysqli_fetch_array($tb_perusahaan);
 $validate = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE aset_lokasi='' AND id_form='$id' AND status_tempat='proses_survey'");
-$nums = mysqli_num_rows($validate);
+$nums = mysqli_num_rows($validate);
 function tgl_indo($tanggal){
   $bulan = array (
     1 =>   'Januari',
@@ -43,7 +43,6 @@ function tgl_indo($tanggal){
     'Desember'
   );
   $pecahkan = explode('-', $tanggal);
-
 
   // variabel pecahkan 0 = tanggal
   // variabel pecahkan 1 = bulan
@@ -79,7 +78,7 @@ function tgl_indo($tanggal){
 	<div class="bodysurat">
 		<h3>BERITA ACARA PENINJAUAN</h3>
 		<h3><u>TITIK LOKASI PENEMPATAN MENARA TELEKOMUNIKASI</u></h3>
-		<center><p>Nomor 490 / <?php echo $id ?></p></center></br></br>
+		<center><p>Nomor 490 / <input type="text" id='nomorberita' onchange="update_nomor()" value="<?php echo $data_berita['no_berita_acara'] ?>"></p></center></br></br>
 
 		<div class="justify">
 			<p>Yang bertanda-tangan dibawah ini bertindak selaku Tim Pengawasan dan Pengendalian Penyelenggaraan Komunikasi dan Informatika
@@ -524,6 +523,22 @@ function updatetglberita(){
    			});
 
 }
+
+function update_nomor(){
+	var kode_brg = $("#nomorberita").val();
+			var id_form = $("#form").val();
+			var kolom = "no_berita_acara";
+  			//document.write(kode_brg);
+    		$.ajax({
+    			url: '../aksi/admin/update_berita.php',
+    			data:'kode_brg='+kode_brg+'&id_form='+id_form+'&kolom='+kolom
+    		})
+    		.success(function (data) {
+    			$("#nomorberita").html(kode_brg);
+   			});
+
+}
+
 function updatethn(){
 	var kode_brg = $("#tahun").val();
 			var id_form = $("#form").val();

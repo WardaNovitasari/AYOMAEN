@@ -46,10 +46,10 @@
           <a class="dropdown-item" href="tambah_dinas.php"><i class="fas fa-fw fa-wave-square text-primary"></i> Data Dinas</a>
         </div>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="akun_api.php">
           <i class="fas fa-fw fa-home"></i>
           <span>Akun API SMS</span>
         </a>
-      </li>
+      </li> -->
     </ul>

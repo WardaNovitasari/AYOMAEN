@@ -6,7 +6,7 @@
 
 </style>
  <nav class="navbar navbar-expand navbar-dark bg-abu static-top">
-<img src="img/logo1.png">
+<img src="img/Logo1.png">
     <!-- <a class="navbar-brand mr-1" href="index.php">Cleon</a> -->
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
