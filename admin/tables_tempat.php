@@ -31,6 +31,16 @@ session_start();
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
+        <?php
+        if($step==1){
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='pengajuan'";
+        }elseif($step==2){
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='hasil_survey'";
+        }elseif($step==3){
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='proses_rekom'";
+        }elseif($step==4){
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id'AND tb_tempat_menara.status_tempat='cetak_rekom' AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='rekom_terbit'  AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='pengajuan_ulang'";
+        } ?>
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
@@ -52,19 +62,12 @@ session_start();
             <th>Tinggi</th>
             <th>Status</th>
             <th>Keterangan</th>
-            <th colspan="3"><center>Action</center></th>
+            <th>Nama Penerima</th>
+            <th>Tanggal Terima</th>
+            <th colspan="4"><center>Action</center></th>
         </tr>
 
         <?php
-        if($step==1){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='pengajuan'";
-        }elseif($step==2){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='hasil_survey'";
-        }elseif($step==3){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='proses_rekom'";
-        }elseif($step==4){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id'AND tb_tempat_menara.status_tempat='cetak_rekom' AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='rekom_terbit'  AND tb_tempat_menara.id_form='$id' OR tb_tempat_menara.status_tempat='pengajuan_ulang'";
-        }
         $menara = mysqli_query($config,$sql);
         while($data = mysqli_fetch_assoc($menara)){
         ?>
@@ -108,8 +111,14 @@ session_start();
                 </td>
                 <td class="edit_td"><?php echo $data['status_tempat'] ?></td>
                 <td class="edit_td"><a href="" id="tolakuy" class="tolak"data-type="text" data-pk="<?php echo $data['id_tempat'] ?>" data-name="alasan"><?php echo $data['alasan'] ?></a></td>
+                <td></td>
+                <td>d</td>
                 <?php if($data['status_tempat']=='cetak_rekom' || $data['status_tempat']=='rekom_terbit'){ ?>
                     <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></td>
+                      <!-- <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i> -->
+                       <?php if($data['status_tempat']=='rekom_terbit'){ ?>
+                        <td><a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalT<?php echo $data['id_tempat']?>"><i>Terima</i>
+                      <?php } ?> </td>
                 <?php }else{ ?>
                 <td><a href="" class="btn btn-primary btn-sm tolak"  data-toggle="modal" data-target="#myModal<?php echo $data['id_tempat']?>">Cek</a></td>
                 <?php if($data['status_tempat']!='cetak_rekom'){?>
@@ -128,6 +137,7 @@ session_start();
 
         <?php
             include 'modal/modal_info_menara.php';
+            include 'modal/modal_penerima.php';
             }
         ?>
               </table>

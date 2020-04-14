@@ -89,10 +89,10 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
     $data = mysqli_fetch_array($query);
   ?>
-  <tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<i><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php if($data['site_id_hasil']==NULL){echo $siteidhasil;}else{echo $data['site_id_hasil'];} ?>"></i></td></tr>
+  <tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<?php if($data['site_id_hasil']==NULL){echo $siteidhasil;}else{echo $data['site_id_hasil'];} ?></td></tr>
   <tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude <?php echo $data['lat_hasil'] ?>  ; Longitude <?php echo $data['lng_hasil']; ?></p></td></tr>
   <tr><td><p>c. Tinggi</p></td><td><p>:</p></td><td> <p> <?php echo $data['tinggi'] ?> meter</p></td></tr>
-  <tr><td><p>d. Alamat</p></td><td><p>:</td><td><p><?php echo $data['alamat'] ?>, <?php echo $data['kelurahan'] ?>, <?php echo $data['kecamatan'] ?></p></td></tr>
+  <tr><td><p>d. Alamat</p></td><td><p>:</td><td><p><?php echo $data['alamat'] ?>, <?php echo ucfirst(strtolower($data['kelurahan'])) ?>, <?php echo ucfirst(strtolower($data['kecamatan'])) ?>, Yogyakarta</p></td></tr>
   <tr><td><p>e. Zona</p></td><td><p>:</p></td><td><p> Menara Kamuflase</p></td></tr>
   <tr><td><p>f. Status Tanah</p></td><td><p>:</p></td><td><p><?php echo $data['aset_lokasi'] ?></p></td></tr>
   <tr><td><p>g. Penggunaan Aset</p></td><td><p>:</p></td><td><?php if($data['aset_lokasi']=="Aset Pemkot Yogyakarta"){ ?>
@@ -116,9 +116,8 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
   <tr><td><p>i. Tipe Menara</p></td><td><p>:</td><td> <select id="pilihan" onchange="update_otomatis()" name="id_tempat1">
               <option value='' selected>-pilih-</option>
               <option value='1' selected>1</option>
-              <option value='3' selected>3  </option>
-              <option value='4' selected>4  </option>
-      </select><p><?php echo $data['tipe_site'] ?> Kaki</p></td></tr>
+              <option value='3' selected>3</option>
+              <option value='4' selected>4</option></select><?php echo $data['tipe_site'] ?> Kaki</td></tr>
   <tr><td><p>j. Keterangan</p></td><td><p>:</p></td><td><p id="tipe-menara"><select id="keterangan" onchange="update_keterangan()" name="id_tempat1">
               <option value='' selected>-pilih-</option>
               <option value='existing perda' selected>Existing Perda</option>
@@ -134,7 +133,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     Demikian untuk menjadi periksa.</p>
   <br>
   <table border="0" align="right" class="tbcontainer">
-    <tr><td><center><p>Yogyakarta, <input type="date" value="<?php echo $data_rekom['tgl_rekomendasi']?>" id="tgl" onchange="updatetgl()"></p></center></td></tr>
+    <tr><td><center><p>Yogyakarta, .................................. <!-- <input type="date" value="<?php echo $data_rekom['tgl_rekomendasi']?>" id="tgl" onchange="updatetgl()"> --></p></center></td></tr>
     <tr><td><center><p>KEPALA</p></center></td></tr>
     <tr><td>&nbsp;</td></tr>
     <tr><td>&nbsp;</td></tr>
