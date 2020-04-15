@@ -7,7 +7,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Pilih "Keluar" untuk mengeluarkan akun anda.</div>
+        <div class="modal-body">Pilih "Keluar" untuk logout dari akun anda.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
           <a class="btn btn-danger" href="../aksi/aksi_logout.php">Keluar</a>

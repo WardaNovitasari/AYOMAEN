@@ -89,85 +89,48 @@
 
 
     <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="container wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="widget">
-                        <h3>Company</h3>
+                        <h3>Kontak Kami</h3>
+                        <i class="fa fa-phone-square"></i> (0274) 551230<br>
+                        <i class="fa fa-phone-square"></i> (0274) 515865<br>
+                        <i class="fa fa-phone-square"></i> (0274) 562682<br>
+                        Ext. 211<br>
+                        Fax. (0247) 520332<br>
+                        <i class="fa fa-envelope"></i> kominfosandi@jogjakota.co.id<br>
+                        <i class="fa fa-map-marker"></i> Jl. Kenari No. 56 Yogyakarta, Kota Gede<br>
+
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="widget">
+                        <h3>Menu Navigasi</h3>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">We are hiring</a></li>
-                            <li><a href="#">Meet the team</a></li>
-                            <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="../dashboard">Beranda</a></li>
+                            <li><a href="petunjuk_pengguna.php">Petunjuk Pengguna</a></li>
+                            <li><a href="peta_menara.php">Peta Menara</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="widget">
-                        <h3>Support</h3>
-                        <ul>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Refund policy</a></li>
-                            <li><a href="#">Ticket system</a></li>
-                            <li><a href="#">Billing system</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Developers</h3>
-                        <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                            <li><a href="#">Plugin Development</a></li>
-                            <li><a href="#">Article Writing</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul>
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
-                        </ul>
+                        <h3>Lokasi</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.897491328196!2d110.38812781437673!3d-7.800676479594186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5764a3d69075%3A0xb232b7001decd6b!2sDinas%20Komunikasi%20Informatika%20dan%20Persandian%20Kota%20Yogyakarta!5e0!3m2!1sid!2sid!4v1585161404159!5m2!1sid!2sid" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>    
                 </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
 
-
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
+                <div class="center">
+                    &copy; 2020 Pemerintah Kota Yogyakarta. All Rights Reserved.
                 </div>
             </div>
         </div>

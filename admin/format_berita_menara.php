@@ -337,6 +337,10 @@ function tgl_indo($tanggal){
 				<br><br><br><br>
 				<p><u><?php echo $data2['nama'] ?></u></p>
 				<p><?php echo $data2['nip'] ?></p>
+
+<!-- BARCODE TAMPIL -->
+
+				asasasass
 			</center>
 		</div>
 		<div id="kanan">

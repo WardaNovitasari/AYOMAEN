@@ -39,8 +39,8 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Cleon</title>
-
+  <title>SIPERMEN - Riwayat Pengajuan</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../admin/boostrap/leaflet/leaflet.css">
