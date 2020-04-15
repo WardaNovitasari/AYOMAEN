@@ -339,8 +339,13 @@ function tgl_indo($tanggal){
 				<p><?php echo $data2['nip'] ?></p>
 
 <!-- BARCODE TAMPIL -->
+<?php
+		include 'barcode128.php';
+		$querybc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_form='$id'");
+		$databc = mysqli_fetch_array($querybc);
+			echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($databc['site_id']));
 
-				asasasass
+		?>
 			</center>
 		</div>
 		<div id="kanan">
