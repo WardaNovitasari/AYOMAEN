@@ -1,3 +1,5 @@
+
+
 <?php
 include '../koneksi/koneksi.php';
 /*
@@ -397,7 +399,7 @@ $('#clickme').change(function(){
       <div class="row">
           <div class="container-fluid">
              <form name="myForm" id="myForm" action="" method="post" enctype="multipart/form-data">
-            
+            <p>Silahkan download format file excel disini <a href="../Upload.xls" required="">Download</a></p>
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -407,21 +409,57 @@ $('#clickme').change(function(){
           </thead>
          
           <tbody>
-<!-- SOAL 1 -->
-              <td><center>1</center></td>
-                <td>
-           
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='1' ");
-                    $soal=mysqli_fetch_array($query);
-                    // QUERY SOAL 1
-                    $query8=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=8");
-                    $data8 = mysqli_fetch_assoc($query8);
-                    // 
-                  ?>
-
+            <?php
+              $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara'");
+              $query3=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=3");
+              $data3 = mysqli_fetch_assoc($query3);
+              $query4=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=4");
+              $data4 = mysqli_fetch_assoc($query4);
+              $query7=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=7");
+              $data7 = mysqli_fetch_assoc($query7);
+              $query8=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=8");
+              $data8 = mysqli_fetch_assoc($query8);
+              $query11=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=11");
+              $data11 = mysqli_fetch_assoc($query11);
+              //print_r($data2);
+              $no = 1;
+              while($soal=mysqli_fetch_array($query)){
+              ?>
+            <tr>
+              <td><center><?php echo $no++ ?></center></td>
+              <td>
+              <?php if($soal['id_tipe']==1){?>
                   <h5><?php echo $soal['soal']; ?></h5>
-                  <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a> dan Format data lampiran dalam bentuk File Excel disini <a href="../Upload.xls" required="">Download</a></p>
+                  <p class="text-primary">File KMZ</p>
+                  <input type="file" name="files" required="">  
+
+<!-- AJAX 10-11 -->
+<tr>
+<td colspan="2" style="color: red;">
+<input type="checkbox" name="clickme" id="clickme"> *Ceklist jika tinggi menara lebih dari 6 meter.
+  
+  
+    <?php }elseif($soal['id']==10){ ?>
+  <div id="showhide1">
+                <h5><?php echo $soal['soal'];?></h5>
+  </div>
+
+  
+    <?php }elseif($soal['id']==11){ ?>
+  <div id="showhide2">
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
+                <input type="file" name="surat11"> 
+  </div>
+</td>
+</tr>
+
+
+
+              <?php }elseif($soal['id_tipe']==2){ ?>
+                  <h5><?php echo $soal['soal']; ?></h5>
+                  <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data8['nm_file']?>" required="">Download</a></p>
+                  
                   <label>No Surat</label>
                   <input type="text" name="no_surat" required="">
                    <label>Tgl Surat</label>
@@ -430,168 +468,33 @@ $('#clickme').change(function(){
                   <input type="file" name="file" required=""><br>
                   <p class="text-primary">File Surat</p>
                   <input type="file" name="surat8" required="">
-
-
-                </td>
-              </tr>
-
-<!-- SOAL 2 -->
-              <tr>
-              <td><center>2</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='2' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                    <h5><?php echo $soal['soal']; ?></h5>
-                </td>
-              </tr>
-
-<!-- SOAL 3 -->
-              <tr>
-              <td><center>3</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='3' ");
-                    $soal=mysqli_fetch_array($query);
-                    // QUERY SOAL 3
-                    $query3=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=3");
-                    $data3 = mysqli_fetch_assoc($query3);
-                    // QUERY SOAL 3
-                  ?>
-                  <h5><?php echo $soal['soal'];?></h5>
-                  <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data3['nm_file']?>" required="">Download</a></p>
+              <?php } elseif($soal['id']==3){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data3['nm_file']?>" required="">Download</a></p>
                   <input type="file" name="surat3" required="">
-                </td>
-              </tr>
-
-<!-- SOAL 4 -->
-              <tr>
-              <td><center>4</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='4' ");
-                    $soal=mysqli_fetch_array($query);
-                    // QUERY SOAL 4
-                    $query4=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=4");
-                    $data4 = mysqli_fetch_assoc($query4);
-                    // QUERY SOAL 4
-                  ?>
-                  <h5><?php echo $soal['soal'];?></h5>
-                    <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data4['nm_file']?>" required="">Download</a></p>
+              <?php }elseif($soal['id']==4){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data4['nm_file']?>" required="">Download</a></p>
                   <input type="file" name="surat4" required="">
-                </td>
-              </tr>
-
-<!-- SOAL 5 -->
-              <tr>
-              <td><center>5</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='5' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                    <h5><?php echo $soal['soal']; ?></h5>
-                </td>
-              </tr>
-
-<!-- SOAL 6 -->
-              <tr>
-              <td><center>6</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='6' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                    <h5><?php echo $soal['soal']; ?></h5>
-                </td>
-              </tr>
-
-<!-- SOAL 7 -->
-              <tr>
-              <td><center>7</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='7' ");
-                    $soal=mysqli_fetch_array($query);
-                    // QUERY SOAL 7
-                    $query7=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=7");
-                    $data7 = mysqli_fetch_assoc($query7);
-                    // QUERY SOAL 7
-                  ?>
-                  <h5><?php echo $soal['soal'];?></h5>
-                    <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data7['nm_file']?>" required="">Download</a></p>
+              <?php }elseif($soal['id']==7){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data7['nm_file']?>" required="">Download</a></p>
                   <input type="file" name="surat7" required="">
-                </td>
-              </tr>
-
-<!-- SOAL 8 -->
-              <tr>
-              <td><center>8</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='8' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                    <h5><?php echo $soal['soal']; ?></h5>
-                </td>
-              </tr>
-
-<!-- SOAL 9 -->
-              <tr>
-              <td><center>9</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='9' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                  <h5><?php echo $soal['soal']; ?></h5>
-                  <p class="text-primary">File KMZ</p>
-                  <input type="file" name="files" required="">  
-                </td>
-              </tr>
+              <?php }elseif($soal['id']==8){ ?>
+                <h5><?php echo $soal['soal'];?></h5>
+                
 
 
 
-<tr>
-<td colspan="2" style="color: red;">
-<input type="checkbox" name="clickme" id="clickme"> *Centang jika tinggi menara lebih dari 6 meter.
-</td>
-</tr>
+              <?php }else{ ?>
+              <h5><?php echo $soal['soal'];  ?></h5>
+            <?php } ?>
+              </td>
+             
+            </tr>
 
- <!-- SOAL 10 -->
-              <tr id="showhide1">
-              <td><center>10</center></td>
-                <td>
-                  <div id="showhide1">
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='10' ");
-                    $soal=mysqli_fetch_array($query);
-                  ?>
-                    <h5><?php echo $soal['soal']; ?></h5>
-                </td>
-              </tr>
-
-<!-- SOAL 11 -->
-              <tr id="showhide2">
-              <td><center>11</center></td>
-                <td>
-                  <?php
-                    $query=mysqli_query($config,"SELECT * FROM tb_soal WHERE kategori='menara' AND id='11' ");
-                    $soal=mysqli_fetch_array($query);
-                    // QUERY SOAL 11
-                    $query11=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=11");
-                    $data11 = mysqli_fetch_assoc($query7);
-                    // QUERY SOAL 11
-                  ?>
-                  <h5><?php echo $soal['soal'];?></h5>
-                    <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
-                  <input type="file" name="surat7" required="">
-                </td>
-              </tr>
-
-
-          <!-- Centang Berkas Lengkap -->  
+          <?php
+           }?>
             <tr>
               <td colspan="2"><input type="checkbox" name="soal[]" value="Tidak" title="Tidak" required=""  onchange="document.getElementById('submit').disabled = !this.checked;" <?php  ?>> Bahwa berkas-berkas diatas telah di lengkapi.</td>
             </tr>
