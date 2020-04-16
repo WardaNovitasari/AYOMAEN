@@ -7,7 +7,12 @@ session_start();
   }
   $id    = $_GET['id'];
  $step  = $_GET['step'];
-  
+ if (isset($_POST['submit'])) {
+  $namaPenerima = $_POST['nama_penerima'];
+  $tglTerima = $_POST['tgl_terima'];
+   $queryupdate = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `nama_penerima`='$namaPenerima',`tanggal_terima`='$tglTerima' WHERE `id_form`='$id'");
+
+  } 
  
 ?>
 <!DOCTYPE html>
@@ -122,7 +127,7 @@ session_start();
                     <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></td>
                       <!-- <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i> -->
                        <?php if($data['status_tempat']=='rekom_terbit'){ ?>
-                        <td><a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalT<?php echo $data['id_tempat']?>"><i>Terima</i>
+                        <td><a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#inputpenerima"><i>Terima</i>
                       <?php } ?> </td>
                 <?php }else{ ?>
                 <td><a href="" class="btn btn-primary btn-sm tolak"  data-toggle="modal" data-target="#myModal<?php echo $data['id_tempat']?>">Cek</a></td>
