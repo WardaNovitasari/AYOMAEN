@@ -146,7 +146,8 @@
                     <div class="skill">
                         
                         <p style="color: #fff; text-align: justify; font-size: 20px">SIPERMEN merupakan sistem pelayanan rekomendasi infrastruktur pasif telekomunikasi. Sistem pelayanan yang dibuat untuk mempermudah administrasi  pembangunan infrastruktur. Dimana pemohon dapat mengajukan rekomendasi lokasi untuk  pembangunan menara online dan pemasangan fiber optik secara online, serta dapat melihat pemetaan map menara.</p>
-                    <!-- <a class="btn btn-primary readmore" href="blog-item.html">Selengkapnya <i class="fa fa-angle-right"></i></a> -->
+
+                    <a class="btn btn-primary readmore" href="petunjuk_pengguna.php">Petunjuk Pengguna <i class="fa fa-angle-right"></i></a>
                     </div>
 
                 </div><!--/.col-sm-6-->
@@ -174,7 +175,7 @@
                         </div>
                 <div class="col-sm-6 wow fadeInLeft">
                     <div class="skill">
-                       <img class="img-responsive" src="images/twr6.jpg" style="margin-left: 80px;"></img>
+                       <img class="img-responsive" src="images/towericon.png" style="margin-left: 80px;"></img>
                     </div>
                 </div>
 
@@ -188,12 +189,12 @@
                         <div class="feature-wrap">
                             <i class="fa fa-file-text-o"></i>
                             <h2>Menyiapkan Berkas - Berkas yang dibutuhkan</h2>
-                            <h3>Berkas tersebut dibutuhkan untuk diupload pada saat pengajuan.
+                            <h3>Berkas tersebut dibutuhkan untuk diupload pada saat pengajuan rekomendasi lokasi.
                             </h3>
                         </div>
                         <div class="feature-wrap">
                             <i class="fa fa-bullhorn"></i>
-                            <h2>Menerima Hasil Laporan setelah pengajuan lokasi di setujui oleh admin verifikator</h2>
+                            <h2>Menerima Hasil Laporan setelah pengajuan rekomendasi lokasi di setujui oleh admin verifikator</h2>
                             <h3>Dengan informasi yang ter-update dan dapat dipantau.</h3>
                         </div>
                     </div>
@@ -226,8 +227,8 @@
                         <h3>Menu Navigasi</h3>
                         <ul>
                             <li><a href="../dashboard">Beranda</a></li>
+                            <li><a href="petunjuk_pengguna.php">Petunjuk Pengguna</a></li>
                             <li><a href="peta_menara.php">Peta Menara</a></li>
-                            <li><a href="#">Microcell</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -245,16 +246,8 @@
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
+                <div class="center">
+                    &copy; 2020 Pemerintah Kota Yogyakarta. All Rights Reserved.
                 </div>
             </div>
         </div>

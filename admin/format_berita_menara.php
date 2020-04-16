@@ -337,6 +337,8 @@ function tgl_indo($tanggal){
 				<br><br><br><br>
 				<p><u><?php echo $data2['nama'] ?></u></p>
 				<p><?php echo $data2['nip'] ?></p>
+
+
 			</center>
 		</div>
 		<div id="kanan">

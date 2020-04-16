@@ -5,7 +5,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Cleon</title>
+  <title>Admin - SI PERMEN</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
 
   <!-- Custom fonts for this template-->
   <link href="boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

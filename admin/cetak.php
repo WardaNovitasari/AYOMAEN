@@ -7,6 +7,7 @@
   		}
 	require_once 'dompdf/autoload.inc.php';
 	require_once '../koneksi/koneksi.php';
+	require_once 'barcode128.php';
 	use Dompdf\Dompdf;
 	
 
@@ -24,6 +25,7 @@
 	$query8 = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE posisi='KA'");
 	$data5 = mysqli_fetch_array($query8);
 
+	
 	function tgl_indo($tanggal){
   $bulan = array (
     1 =>   'Januari',

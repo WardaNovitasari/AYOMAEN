@@ -272,6 +272,9 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                   </table>
                 </div>
                 </div>
+                <div>
+                  <a class="btn btn-primary" style="margin: 20px" href="input_menara_baru.php">Tambah Menara Baru</a>
+                </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                 </div>
               </div>

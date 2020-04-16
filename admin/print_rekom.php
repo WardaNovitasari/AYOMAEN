@@ -144,6 +144,15 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     <tr><td>&nbsp;</td></tr>
     <tr><td><u><center><p><?php echo $dt_pegawai['nama'] ?></p></center></u></td></tr>
     <tr><td><center><p>NIP.<?php echo $dt_pegawai['nip'] ?>'</p></center></td></tr>
+
+    <!-- BARCODE TAMPIL -->
+    <tr><td><center>
+    <?php
+    include 'barcode128.php';
+      echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($fixsiteid));
+    ?>
+    </center></td></tr>
+
   </table>
   <br>
   <br>

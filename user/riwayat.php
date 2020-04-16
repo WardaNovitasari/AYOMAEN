@@ -51,8 +51,8 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SI Permen - Riwayat</title>
-
+  <title>SIPERMEN - Pengajuan Menara</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../admin/boostrap/leaflet/leaflet.css">
@@ -120,6 +120,8 @@ session_start();
 <br /><br />
 
   <div class="container-fluid">
+
+  <a class="btn btn-primary" href="edit_input_lokasi.php">Edit Lokasi</a>
 
         <!-- SmartWizard 1 html -->
         <div id="smartwizard">
