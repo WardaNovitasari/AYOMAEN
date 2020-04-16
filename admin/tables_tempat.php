@@ -129,7 +129,7 @@ session_start();
                 ?>                
             </tr>
 
-            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#inputpenerima" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;</a>
+            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#inputpenerima" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>Tambah Penerima</a>
 
         <?php
             include 'modal/modal_info_menara.php';

@@ -16,7 +16,7 @@ session_start();
   error_reporting(E_ALL);
   $id= $_GET['id'];
 
-  include 'barcode128.php';
+  
 
   $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
@@ -36,8 +36,15 @@ session_start();
    }
   $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
   $data = mysqli_fetch_array($query);
+  if($data['site_id_hasil']!=NULL){
+      $siteidhasil = $data['site_id_hasil'];
+    }
+    $fixsiteid = $data['digit_awal'].$data['digit_akhir'].'.'.$siteidhasil;
+
   $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
   $dt_pegawai = mysqli_fetch_array($pegawai);
+
+  include 'barcode128.php';
   // $barcode = .bar128(stripcslashes($data['digit_awal'].$data['digit_akhir'].'.'.$data['site_id_hasil']));
 
 
@@ -124,7 +131,7 @@ session_start();
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
  										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p></center></td></tr>
                     <tr><td><center><p>SITE  ID</p><br>
-                    
+                    '.$fixsiteid.'
                     </center></td></tr>
  									</table>
  									<br>

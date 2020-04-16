@@ -1,7 +1,6 @@
 <?php
 include '../koneksi/koneksi.php';
 
-
 session_start();
   if(empty($_SESSION['username'])){
     header("location:login.php");
@@ -9,7 +8,8 @@ session_start();
     header("location:404.html");
   }
   $username=$_SESSION['username'];
- $perusahaan = $_SESSION['perusahaan'];
+  $perusahaan =$_SESSION['perusahaan'];
+
 if(isset($_GET['id'])){
   $id_tempat=$_GET['id'];
   $step3 = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='pengajuan' AND tb_tempat_menara.id_tempat='$id_tempat' OR tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='belum_dikirim' AND tb_tempat_menara.id_tempat='$id_tempat' OR tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='ditolak' AND tb_tempat_menara.id_tempat='$id_tempat' OR tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='revisi' AND tb_tempat_menara.id_tempat='$id_tempat' ORDER BY tb_tempat_menara.status_tempat");

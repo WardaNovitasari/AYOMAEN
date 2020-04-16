@@ -88,6 +88,10 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     $siteidhasil = sprintf("%04s", $nourut) ;
     $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
     $data = mysqli_fetch_array($query);
+    if($data['site_id_hasil']!=NULL){
+      $siteidhasil = $data['site_id_hasil'];
+    }
+    $fixsiteid = $data['digit_awal'].$data['digit_akhir'].'.'.$siteidhasil;
   ?>
   <tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $data['digit_awal']; echo $data['digit_akhir'];?>.<i><input type="text" name="site_id" id="site_id" onchange="update_siteid()" value="<?php if($data['site_id_hasil']==NULL){echo $siteidhasil;}else{echo $data['site_id_hasil'];} ?>"></i></td></tr>
   <tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude <?php echo $data['lat_hasil'] ?>  ; Longitude <?php echo $data['lng_hasil']; ?></p></td></tr>
@@ -146,7 +150,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     <tr><td><center>
     <?php
     include 'barcode128.php';
-      echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($data['digit_awal'].$data['digit_akhir'].'.'.$siteidhasil));
+      echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($fixsiteid));
     ?>
     </center></td></tr>
 
