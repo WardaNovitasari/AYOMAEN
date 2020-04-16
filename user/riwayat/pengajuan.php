@@ -78,6 +78,42 @@
                   <td><a href="../aksi/user/delete.php?id=<?php echo $data['id_tempat']?>&tipe=<?php echo $link5 ?>" class="btn btn-danger btn-sm nonaktiv disabled"><i class="fas fa-trash"></i></a></td>
                   <td><a href="<?php echo $link2 ?>?id=<?php echo $data['id_tempat'] ?>?id=<?php echo $data['id_tempat'] ?>" class="btn btn-success btn-sm nonaktiv disabled"><i class="fas fa-check"></i></a></td>
                 </tr>
+              <?php }else if($data['status_tempat']=='berkas tidak lengkap'){ ?>
+                <tr>
+                  <td></td>
+                  <td><p><?php echo $data['nomor'] ?></p></td>
+                  <td><p><?php echo $data['site_id'] ?></p></td>
+                  <td><p><?php echo $data['alamat'] ?></p></td>
+                  <td><p><?php echo $data['kelurahan'] ?></p></td>
+                  <td><p><?php echo $data['kecamatan'] ?></p></td>
+                  <td><p><?php echo $data['lat'] ?></p></td>
+                  <td><p><?php echo $data['lng'] ?></p></td>
+                  <td><p><?php echo $data['tipe_menara'] ?></p></td>
+                  <td><p><?php echo $data['tinggi'] ?></p></td>
+                  <td><p class="text-danger"><b><?php echo $data['status_tempat'] ?></b></p></td>
+                  <td><p><?php echo $data['alasan'] ?></p></td>
+                  <td><a href="edit_berkas.php?id=<?php echo $data['id_tempat']?>" class="btn btn-primary btn-sm"><i class="fas fa-file"></i></a></td>
+                  <td><a href="../aksi/user/delete.php?id=<?php echo $data['id_tempat']?>&tipe=<?php echo $link5 ?>" class="btn btn-danger btn-sm nonaktiv disabled"><i class="fas fa-trash"></i></a></td>
+                  <td><a href="<?php echo $link2 ?>?id=<?php echo $data['id_tempat'] ?>?id=<?php echo $data['id_tempat'] ?>" class="btn btn-success btn-sm nonaktiv disabled"><i class="fas fa-check"></i></a></td>
+                </tr>
+              <?php }else if($data['status_tempat']=='pengajuan ulang berkas'){ ?>
+                <tr>
+                  <td></td>
+                  <td><p><?php echo $data['nomor'] ?></p></td>
+                  <td><p><?php echo $data['site_id'] ?></p></td>
+                  <td><p><?php echo $data['alamat'] ?></p></td>
+                  <td><p><?php echo $data['kelurahan'] ?></p></td>
+                  <td><p><?php echo $data['kecamatan'] ?></p></td>
+                  <td><p><?php echo $data['lat'] ?></p></td>
+                  <td><p><?php echo $data['lng'] ?></p></td>
+                  <td><p><?php echo $data['tipe_menara'] ?></p></td>
+                  <td><p><?php echo $data['tinggi'] ?></p></td>
+                  <td><p class="text-danger"><b><?php echo $data['status_tempat'] ?></b></p></td>
+                  <td><p><?php echo $data['alasan'] ?></p></td>
+                  <td><a href="edit_berkas.php?id=<?php echo $data['id_tempat']?>" class="btn btn-primary btn-sm"><i class="fas fa-file"></i></a></td>
+                  <td><a href="../aksi/user/delete.php?id=<?php echo $data['id_tempat']?>&tipe=<?php echo $link5 ?>" class="btn btn-danger btn-sm nonaktiv disabled"><i class="fas fa-trash"></i></a></td>
+                  <td><a href="<?php echo $link2 ?>?id=<?php echo $data['id_tempat'] ?>?id=<?php echo $data['id_tempat'] ?>" class="btn btn-success btn-sm nonaktiv disabled"><i class="fas fa-check"></i></a></td>
+                </tr>
               <?php } else if($data['status_tempat']=='belum_dikirim'){?>
                 <tr>
                   <td><input type="checkbox" name="cek[]" value="<?php echo $data['id_tempat'] ?>"></td>

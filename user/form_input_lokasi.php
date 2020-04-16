@@ -164,7 +164,7 @@ session_start();
 }
 $jumlah = count($nomor1);
 for($j=0;$j<$jumlah;$j++){
-  $insert = mysqli_query($config,"INSERT INTO tb_tempat_menara VALUES('','$id_form','$nomor1[$j]','$site_id1[$j]','$alamat1[$j]','$kelurahan1[$j]','$kecamatan1[$j]','$lat1[$j]','$long1[$j]','','','$tipe_menara1[$j]','','$tinggi1[$j]','pengajuan','','','','')");
+  $insert = mysqli_query($config,"INSERT INTO tb_tempat_menara VALUES('','$id_form','$nomor1[$j]','$site_id1[$j]','$alamat1[$j]','$kelurahan1[$j]','$kecamatan1[$j]','$lat1[$j]','$long1[$j]','','','$tipe_menara1[$j]','','$tinggi1[$j]','pengajuan','','','','','','')");
 }
     echo '<script>alert("Data berhasil diajukan ! ");window.location.href="riwayat.php"</script>';
               }else{
@@ -272,7 +272,7 @@ for($j=0;$j<$jumlah;$j++){
 }
 $jumlah = count($nomor1);
 for($j=0;$j<$jumlah;$j++){
-  $insert = mysqli_query($config,"INSERT INTO tb_tempat_menara VALUES('','$id_form','$nomor1[$j]','$site_id1[$j]','$alamat1[$j]','$kelurahan1[$j]','$kecamatan1[$j]','$lat1[$j]','$long1[$j]','','','$tipe_menara1[$j]','','$tinggi1[$j]','pengajuan','','','','')");
+  $insert = mysqli_query($config,"INSERT INTO tb_tempat_menara VALUES('','$id_form','$nomor1[$j]','$site_id1[$j]','$alamat1[$j]','$kelurahan1[$j]','$kecamatan1[$j]','$lat1[$j]','$long1[$j]','','','$tipe_menara1[$j]','','$tinggi1[$j]','pengajuan','','','','','','')");
 }
     echo '<script>alert("Data berhasil diajukan ! ");window.location.href="riwayat.php"</script>';
               }else{
@@ -586,7 +586,7 @@ $('#clickme').change(function(){
                   ?>
                   <h5><?php echo $soal['soal'];?></h5>
                     <p>Download contoh surat pernyataan disini <a href="../file/<?php echo $data11['nm_file']?>" required="">Download</a></p>
-                  <input type="file" name="surat7" required="">
+                  <input type="file" name="surat11" >
                 </td>
               </tr>
 

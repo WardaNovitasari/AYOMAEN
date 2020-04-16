@@ -164,9 +164,20 @@ session_start();
         <?php
             // include 'modal/modal_info_menara.php';
             // }
-        ?>
+            $querypenerima = mysqli_query($config, "SELECT nm_user, email FROM tb_akun JOIN tb_perusahaan JOIN tb_form_menara JOIN tb_tempat_menara ON tb_akun.id_akun = tb_perusahaan.id_akun AND tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan AND tb_form_menara.id_form=tb_tempat_menara.id_form WHERE tb_tempat_menara.id_form='$idform'");
+            $penerima = mysqli_fetch_assoc($querypenerima);
+        ?>  
+
           
               </table>
+              <label>Penerima</label><br>
+              <input type="text" name="penerima" value="<?php echo $penerima['nm_user'] ?>"><br>
+              <label>Kelengkapan Berkas</label><br>
+              <select name ="berkas">
+                <option value="lengkap">Berkas Lengkap</option>
+                <option value="belum">Berkas Belum Lengkap</option>
+              </select>
+
                 <input type="submit" name="submit" class="btn btn-primary" value="submit" id="submit"> 
               </form>
             </div>

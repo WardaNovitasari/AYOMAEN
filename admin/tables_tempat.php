@@ -7,6 +7,8 @@ session_start();
   }
   $id    = $_GET['id'];
  $step  = $_GET['step'];
+  
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,8 +113,8 @@ session_start();
                 </td>
                 <td class="edit_td"><?php echo $data['status_tempat'] ?></td>
                 <td class="edit_td"><a href="" id="tolakuy" class="tolak"data-type="text" data-pk="<?php echo $data['id_tempat'] ?>" data-name="alasan"><?php echo $data['alasan'] ?></a></td>
-                <td></td>
-                <td>d</td>
+                <td class="edit_td"><?php echo $data['nama_penerima'] ?></td>
+                <td class="edit_td"><?php echo $data['tanggal_terima'] ?></td>
                 <?php if($data['status_tempat']=='cetak_rekom' || $data['status_tempat']=='rekom_terbit'){ ?>
                     <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></td>
                       <!-- <td colspan="3"><a href="print_rekom.php?id=<?php echo $data['id_tempat'] ?>&form=<?php echo $data['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i> -->
