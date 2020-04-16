@@ -160,7 +160,7 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                         <th><center>Nama Perusahaan</center></th>
                         <th><center>Nama Pengaju</center></th>
                         <th><center>Status</center></th>
-                        <th colspan="2"><center>Aksi</center></th>
+                        <th colspan="3"><center>Aksi</center></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -175,6 +175,7 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                       <td><center><?php echo $menara['nm_user'] ?></center></td>
                       <td><center><?php echo $menara['status_form'] ?></center></td>
                       <td><a href="format_berita_menara.php?id=<?php echo $menara['id_form'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></a></td>
+                      <td><a href="input_menara_baru.php?id=<?php echo $menara['id_form'] ?>" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></a></td>
                       <td><a href="../aksi/admin/hapus_form_menara.php?id=<?php echo $menara['id_form'] ?>" class="smaller btn btn-danger"  onclick="return confirm('Anda yakin mau menghapus form ini ?')"><i class="smaller fas fa-trash"></i></a></td>
                     </tr>
                     <?php 
@@ -272,9 +273,7 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
                   </table>
                 </div>
                 </div>
-                <div>
-                  <a class="btn btn-primary" style="margin: 20px" href="input_menara_baru.php">Tambah Menara Baru</a>
-                </div>
+
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                 </div>
               </div>

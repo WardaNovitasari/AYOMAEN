@@ -17,8 +17,8 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SI Permen - Input Menara Baru</title>
-
+  <title>SI PERMEN - Input Menara Baru</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../admin/boostrap/leaflet/leaflet.css">
@@ -76,7 +76,7 @@ session_start();
 <br /><br />
 
   <div class="container">
-
+    <p><a href="pengajuan_menara.php" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a></p><br>
  <form action="../aksi/admin/aksi_input_menara_baru.php" class="was-validated" method="POST">
   <input type="hidden" name="id_tempat" value="<?php echo $id_tempat ?>">
   <div class="form-group">

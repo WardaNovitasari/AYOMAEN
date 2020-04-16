@@ -52,6 +52,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
 <html>
 <head>
   <title>Berita Acara</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
   <link rel="stylesheet" type="text/css" href="view/style.css">
   <link href="boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <script src="view/js/jquery.js"></script>

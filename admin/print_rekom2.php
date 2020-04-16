@@ -8,6 +8,7 @@ session_start();
   }
   require_once 'dompdf/autoload.inc.php';
   require_once '../koneksi/koneksi.php';
+
   use Dompdf\Dompdf;
   $dompdf = new Dompdf();
 
@@ -15,9 +16,7 @@ session_start();
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
   $id= $_GET['id'];
-
   
-
   $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
   $data_rekom = mysqli_fetch_array($rekomendasi);
@@ -36,16 +35,9 @@ session_start();
    }
   $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE id_tempat='$id'");
   $data = mysqli_fetch_array($query);
-  if($data['site_id_hasil']!=NULL){
-      $siteidhasil = $data['site_id_hasil'];
-    }
-    $fixsiteid = $data['digit_awal'].$data['digit_akhir'].'.'.$siteidhasil;
 
   $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
   $dt_pegawai = mysqli_fetch_array($pegawai);
-
-  include 'barcode128.php';
-  // $barcode = .bar128(stripcslashes($data['digit_awal'].$data['digit_akhir'].'.'.$data['site_id_hasil']));
 
 
   function tgl_indo($tanggal){
@@ -77,6 +69,7 @@ session_start();
 <html>
 <head>
 	<title>Berita Acara</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
 	<link rel="stylesheet" type="text/css" href="view/style.css">
 	<link href="boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<script src="view/js/jquery.js"></script>
@@ -130,8 +123,7 @@ session_start();
  										<tr><td>&nbsp;</td></tr>
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
  										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p></center></td></tr>
-                    <tr><td><center><p>SITE  ID</p><br>
-                    '.$fixsiteid.'
+                    <tr><td><center><p>'.$data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'].'</p><br>
                     </center></td></tr>
  									</table>
  									<br>

@@ -55,6 +55,7 @@ function tgl_indo($tanggal){
 <html>
 <head>
 	<title>Berita Acara</title>
+	<link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
 	<link rel="stylesheet" type="text/css" href="view/style.css">
 	<script src="view/js/jquery.js"></script>
 	<link href="boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
