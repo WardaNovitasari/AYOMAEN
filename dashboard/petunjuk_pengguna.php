@@ -83,6 +83,7 @@
            <div class="center wow fadeInDown">
                 <h2>Silahkan Download Buku Petunjuk Pada Tombol Dibawah Ini</h2>
                 <button class="btn"><i class="fa fa-download"></i> Download</button>
+                
             </div>   
         </div><!--/.container-->
     </section><!--/#feature-->

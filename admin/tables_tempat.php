@@ -68,6 +68,9 @@ session_start();
         $menara = mysqli_query($config,$sql);
         while($data = mysqli_fetch_assoc($menara)){
         ?>
+
+        
+
             <tr class="edit_tr" id="<?php echo $data['id_tempat'] ?>">
                 <td><?php echo $data['id_form'] ?></td>
                 <td><?php echo $data['nomor'] ?></td>
@@ -123,11 +126,14 @@ session_start();
                     <td><a href="../aksi/admin/revisi.php?kode_brg=<?php echo $data['id_tempat'] ?>" class="btn btn-danger btn-sm disabled delete-menara" title="Tolak" onclick="return confirm('Anda yakin mau menolak lokasi ini ?')" data-id="<?php echo $data['id_tempat'] ?>"><i class="fas fa-times"></i></a></td>
                 <?php }
             }
-                ?>
+                ?>                
             </tr>
+
+            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#inputpenerima" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>&nbsp;</a>
 
         <?php
             include 'modal/modal_info_menara.php';
+            include 'modal/modal_penerima.php';
             }
         ?>
               </table>
