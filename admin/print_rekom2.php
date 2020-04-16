@@ -16,6 +16,8 @@ session_start();
   error_reporting(E_ALL);
   $id= $_GET['id'];
 
+  include 'barcode128.php';
+
   $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
   $data_rekom = mysqli_fetch_array($rekomendasi);
@@ -36,6 +38,8 @@ session_start();
   $data = mysqli_fetch_array($query);
   $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
   $dt_pegawai = mysqli_fetch_array($pegawai);
+  // $barcode = .bar128(stripcslashes($data['digit_awal'].$data['digit_akhir'].'.'.$data['site_id_hasil']));
+
 
   function tgl_indo($tanggal){
   $bulan = array (
@@ -119,6 +123,9 @@ session_start();
  										<tr><td>&nbsp;</td></tr>
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
  										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p></center></td></tr>
+                    <tr><td><center><p>SITE  ID</p><br>
+                    
+                    </center></td></tr>
  									</table>
  									<br>
  									<br>
