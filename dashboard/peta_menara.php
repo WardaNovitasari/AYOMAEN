@@ -81,8 +81,8 @@
 </section>
 
 
-<section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+    <section id="bottom">
+        <div class="container wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="widget">
@@ -103,8 +103,8 @@
                         <h3>Menu Navigasi</h3>
                         <ul>
                             <li><a href="../dashboard">Beranda</a></li>
+                            <li><a href="petunjuk_pengguna.php">Petunjuk Pengguna</a></li>
                             <li><a href="peta_menara.php">Peta Menara</a></li>
-                            <li><a href="#">Petunjuk Pengguna</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -119,20 +119,11 @@
         </div>
     </section><!--/#bottom-->
 
-
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
+                <div class="center">
+                    &copy; 2020 Pemerintah Kota Yogyakarta. All Rights Reserved.
                 </div>
             </div>
         </div>

@@ -43,8 +43,8 @@ if(mysqli_num_rows($cek)!=0){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Cleon</title>
-
+  <title>User - SIPERMEN</title>
+  <link rel="shortcut icon" href="../dashboard/images/ico/ico.png">
   <!-- Custom fonts for this template-->
   <link href="../admin/boostrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../admin/boostrap/leaflet/leaflet.css">
