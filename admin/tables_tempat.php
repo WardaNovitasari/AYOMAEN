@@ -40,7 +40,7 @@ session_start();
         </ol>
         <?php
         if($step==1){
-            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='pengajuan'";
+            $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='pengajuan' OR tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='pengajuan ulang berkas'";
         }elseif($step==2){
             $sql = "SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form WHERE tb_tempat_menara.id_form='$id' AND tb_tempat_menara.status_tempat='hasil_survey'";
         }elseif($step==3){
@@ -145,7 +145,7 @@ session_start();
                 ?>                
             </tr>
 
-            <a class="dropdown-item" role="presentation" href="#" data-toggle="modal" data-target="#inputpenerima" style="color: rgb(78,115,223); font-family: Montserrat, sans-serif; font-weight: bold;"><i class="fas fa-print fa-sm fa-fw mr-2 text-gray-400" style="color: #4e73df;"></i>Tambah Penerima</a>
+            
 
         <?php
             include 'modal/modal_info_menara.php';
