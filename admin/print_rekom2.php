@@ -1,5 +1,6 @@
-<?php
+<?php
 include '../koneksi/koneksi.php';
+require 'vendor/autoload.php';
 session_start();
   if(empty($_SESSION['username'])){
     header("location:../login.php");
@@ -11,11 +12,13 @@ session_start();
 
   use Dompdf\Dompdf;
   $dompdf = new Dompdf();
-
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
   $id= $_GET['id'];
+
+  // BARCODE GENERATOR
+  $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
   
   $update = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `status_tempat`='rekom_terbit' WHERE id_tempat='$id'");
   $rekomendasi = mysqli_query($config,"SELECT * FROM tb_rekomendasi, tb_dinas  WHERE tb_rekomendasi.id_dinas=tb_dinas.id_dinas AND tb_rekomendasi.id_tempat='$id'");
@@ -122,8 +125,15 @@ session_start();
  										<tr><td>&nbsp;</td></tr>
  										<tr><td>&nbsp;</td></tr>
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
- 										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p></center></td></tr>
-                    <tr><td><center><p>'.$data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'].'</p><br>
+ 										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p>
+                    <p><img src="data:image/png;base64,' . base64_encode($generator->getBarcode($data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'], $generator::TYPE_CODE_128, 2, 20)) . '"></p>
+
+                    </center></td></tr>';
+                    
+
+                    
+$html .='
+                    </p><br>
                     </center></td></tr>
  									</table>
  									<br>

@@ -1,5 +1,6 @@
 <?php
 include '../koneksi/koneksi.php';
+require 'vendor/autoload.php';
 session_start();
   if(empty($_SESSION['username'])){
     header("location:../login.php");
@@ -15,14 +16,14 @@ session_start();
 
   $desc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' OR status_tempat='rekom_terbit' AND id_form='$iform' ORDER BY id_tempat DESC");
     $desc1 = mysqli_fetch_array($desc);
-    $ttl = mysqli_num_rows($desc);
+    $ttl = mysqli_num_rows($desc);
 
     $asc = mysqli_query($config,"SELECT * FROM tb_tempat_menara WHERE status_tempat='cetak_rekom' AND id_form='$iform' ORDER BY id_tempat ASC");
     $asc1 = mysqli_fetch_array($asc);
     $id2 = $desc1['id_tempat'];
     $id3 = $asc1['id_tempat'];
 $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'");
-  $dt_pegawai = mysqli_fetch_array($pegawai);
+  $dt_pegawai = mysqli_fetch_array($pegawai);
 
   function tgl_indo($tanggal){
   $bulan = array (
@@ -44,7 +45,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
   // variabel pecahkan 0 = tanggal
   // variabel pecahkan 1 = bulan
   // variabel pecahkan 2 = tahun
- 
+ 
   return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
   ?>
@@ -88,6 +89,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     $nourut++; 
     $siteidhasil = sprintf("%04s", $nourut) ;
     $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
+    
     $data = mysqli_fetch_array($query);
     if($data['site_id_hasil']!=NULL){
       $siteidhasil = $data['site_id_hasil'];
@@ -149,9 +151,13 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     <!-- BARCODE TAMPIL -->
     <tr><td><center>
     <?php
-    include 'barcode128.php';
-      echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($fixsiteid));
+    // include 'barcode128.php';
+    //   echo "<br><p class='inline'><span ><b>Site ID</b></span>".bar128(stripcslashes($fixsiteid));
+    $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+    $height = 2;
+    echo '<img style="height: 25px;" src="data:image/png;base64,' . base64_encode($generator->getBarcode($fixsiteid, $generator::TYPE_CODE_128, $height)) . '">';
     ?>
+
     </center></td></tr>
 
   </table>
@@ -179,7 +185,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     ?>
 
 <?php
-if($ttl > 1){
+if($ttl > 1){
     if($id >= $id2){
 ?>
           <a href="print_rekom2.php?id=<?php echo $id ?>" class="btn btn-primary" target="_blank"><i class="fas fa-print"></i></a>
