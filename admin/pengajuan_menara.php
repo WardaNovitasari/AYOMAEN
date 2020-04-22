@@ -42,10 +42,10 @@ $step1  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara 
   $step3   = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='proses_survey' OR tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='revisi' GROUP BY tb_form_menara.id_form");
   $count3   = mysqli_num_rows($step3);
 
-  $step4  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='proses_rekom' GROUP BY tb_form_menara.id_form");
+  $step4  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='proses_rekom' OR tb_tempat_menara.status_tempat='pengajuan_ulang' GROUP BY tb_form_menara.id_form");
   $count4   = mysqli_num_rows($step4);
 
-  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='cetak_rekom' GROUP BY tb_form_menara.id_form");
+  $step5  = mysqli_query($config,"SELECT * FROM tb_perusahaan JOIN tb_form_menara ON tb_perusahaan.id_perusahaan = tb_form_menara.id_perusahaan JOIN tb_tempat_menara ON tb_form_menara.id_form=tb_tempat_menara.id_form JOIN tb_akun ON tb_perusahaan.id_akun = tb_akun.id_akun WHERE tb_form_menara.status_form='lengkap' AND tb_tempat_menara.status_tempat='cetak_rekom' OR tb_tempat_menara.status_tempat='pengajuan_ulang' GROUP BY tb_form_menara.id_form");
   $count5   = mysqli_num_rows($step5);
  ?>
          <div id="smartwizard">

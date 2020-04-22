@@ -1,9 +1,6 @@
 <?php
 include '../koneksi/koneksi.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 session_start();
   if(empty($_SESSION['username'])){
@@ -13,22 +10,61 @@ session_start();
   }
   $username=$_SESSION['username'];
  $perusahaan = $_SESSION['perusahaan'];
-  $riwayat = $_SESSION['riwayat'];
+  // $riwayat = $_SESSION['riwayat'];
 
- $query = mysqli_query($config,"SELECT * FROM tb_form_menara JOIN tb_perusahaan ON tb_form_menara.id_perusahaan = tb_perusahaan.id_perusahaan WHERE tb_perusahaan.nm_perusahaan ='$perusahaan' ORDER BY status_form DESC");
-  if($riwayat==1){
- $link = 'form_input_lokasi.php';//membuka form input menara
- $link2= "../aksi/user/aksi_kirim_menara.php";// aksi kirim menara
- $link3="../aksi/user/aksi_delete_menara.php";// aksi delete menara
- $link4 ="edit_menara.php";
- $link5 = "menara";
-  }elseif($riwayat==2){
-  $link = 'form_input_fo.php';//membuka form input menara
-  $link2= "../aksi/user/aksi_kirim_fiber.php";//aksi kirim fiber
-   $link3="../aksi/user/aksi_delete_menara.php";// aksi delete fiber
-  $link4 ="edit_fo.php";
-  $link5 = "fiber";
+ if(isset($_GET['id'])){
+
+  $id = $_GET['id'];
+  $ajukan1 = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='rekom_expired' AND tb_tempat_menara.id_tempat='$id'");
+  $hasil1 = mysqli_fetch_assoc($ajukan1);
+  $idtempat = $hasil1['id_tempat'];
+  $idfrom = $hasil1['id_form'];
+  $nomor = $hasil1['nomor'];
+  $site_id = $hasil1['site_id'];
+  $alamat = $hasil1['alamat'];
+  $kelurahan = $hasil1['kelurahan'];
+  $kecamatan = $hasil1['kecamatan'];
+  $lat = $hasil1['lat'];
+  $lng = $hasil1['lng'];
+  $lat_hasil = $hasil1['lat_hasil'];
+  $lng_hasil = $hasil1['lng_hasil'];
+  $tipe_menara = $hasil1['tipe_menara'];
+  $tipe_site = $hasil1['tipe_site'];
+  $tinggi = $hasil1['tinggi'];
+  $status_tempat = $hasil1['status_tempat'];
+  $alasan = $hasil1['alasan'];
+  $tgl_disetujui = $hasil1['tgl_disetujui'];
+  $aset_lokasi = $hasil1['aset_lokasi'];
+  $site_id_hasil = $hasil1['site_id_hasil'];
+
+  $cek_data1 = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='rekom_expired' OR tb_tempat_menara.status_tempat='pengajuan_ulang' AND tb_form_menara.id_form='$idfrom'");
+  $jml_pengajuan = mysqli_num_rows($cek_data1);
+  if($jml_pengajuan >= 2){
+      echo "<script>alert('Hanya Dapat Mengajukan Ulang 1 Kali')</script>";
   }
+  else{
+    echo "jajaja";  
+      //$ajukan2 = mysqli_query($config, "INSERT INTO `tb_tempat_menara` (`id_tempat`, `id_form`, `nomor`, `site_id`, `alamat`, `kelurahan`, `kecamatan`, `lat`, `lng`, `lat_hasil`, `lng_hasil`, `tipe_menara`, `tipe_site`, `tinggi`, `status_tempat`, `alasan`, `tgl_disetujui`, `aset_lokasi`, `site_id_hasil`) VALUES ('','$idfrom','$nomor','$site_id','$alamat','$kelurahan','$kecamatan','$lat','$lng','$lat_hasil','$lng_hasil','$tipe_menara','$tipe_site','$tinggi','pengajuan_ulang','$alasan','$tgl_disetujui','$aset_lokasi','$site_id_hasil')");
+  }
+
+  
+ };
+
+ $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun JOIN tb_rekomendasi ON tb_tempat_menara.id_tempat=tb_rekomendasi.id_tempat WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='cetak_rekom'");
+ // echo print_r($query);
+ //  if($riwayat==1){
+ // $link = 'form_input_lokasi.php';//membuka form input menara
+ // $link2= "../aksi/user/aksi_kirim_menara.php";// aksi kirim menara
+ // $link3="../aksi/user/aksi_delete_menara.php";// aksi delete menara
+ // $link4 ="edit_menara.php";
+ // $link5 = "menara";
+ //  }elseif($riwayat==2){
+ //  $link = 'form_input_fo.php';//membuka form input menara
+ //  $link2= "../aksi/user/aksi_kirim_fiber.php";//aksi kirim fiber
+ //   $link3="../aksi/user/aksi_delete_menara.php";// aksi delete fiber
+ //  $link4 ="edit_fo.php";
+ //  $link5 = "fiber";
+ //  }
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -78,37 +114,12 @@ session_start();
     </style>
 </head>
 <body>
- 
-<!-- partial:index.partial.html -->
-
-<!-- <nav class="navbar navbar-light bg-light static-top">
-
-<ul class="nav-mobile check">
-  <li>CLEON</li>        
-  <li class="menu-container"> 
-    <input id="menu-toggle" type="checkbox">
-    <label for="menu-toggle" class="menu-button">  
-      <svg class="icon-open" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-      <svg class="icon-close" viewBox="0 0 100 100">
-        <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
-      </svg> 
-
-    </label!-->      
+   
     <?php include 'menu_user.php'; ?>
-  <!--</li>
-</ul>
-</nav-->
 
 <br /><br />
 
-<<<<<<< HEAD:user/riwayat_pengajuan.php
- <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <button class="btn btn-outline-success" type="button">Menara</button>
-    <button class="btn btn-outline-success" type="button">Fiber Optik</button>
-  </form>
-</nav>
-=======
+
 
  <!-- Breadcrumbs-->
 <div class="container-fluid">
@@ -122,8 +133,6 @@ session_start();
           
         </ol>
  </div>
-
->>>>>>> d72d26732489415a59ecfa3854824425c1e74426:user/riwayat_pengajuan_menara.php
   <div class="container-fluid">
 
     <div class="card mb-3">
@@ -138,32 +147,33 @@ session_start();
         <tr>
             <th width="5%">No</th>
             <th>Nomor Surat</th>
-            <th>Jenis Surat</th>
-            <th>Tanggal</th>
-            <th>Status Form</th>
-<<<<<<< HEAD:user/riwayat_pengajuan.php
-            <th>Ajukan Ulang</th>
-=======
-            <th>Tanggal Surat</th>
+            <th>Tanggal Pengajuan</th>
+            <th>Tanggal Expired</th>
+            <th>Status Surat</th>
             <th>Aksi</th>
->>>>>>> d72d26732489415a59ecfa3854824425c1e74426:user/riwayat_pengajuan_menara.php
         </tr>
-
-        <?php
+        <tr>
+          <?php
         $no = 1;
+        $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_form_menara ON tb_tempat_menara.id_form=tb_form_menara.id_form JOIN tb_perusahaan ON tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan JOIN tb_akun ON tb_perusahaan.id_akun=tb_akun.id_akun JOIN tb_rekomendasi ON tb_tempat_menara.id_tempat=tb_rekomendasi.id_tempat WHERE tb_akun.username='$username' AND tb_perusahaan.nm_perusahaan='$perusahaan' AND tb_tempat_menara.status_tempat='rekom_expired'");
         while($data = mysqli_fetch_assoc($query)){
         ?>
                 <tr>
-                  <td><p><?php echo $no++ ?>. </p></td>
+                  <td><p><?php echo $no++ ?></p></td>
                   <td><p><?php echo $data['no_surat'] ?></p></td>
-                  <?php if($data['status_form']=='tidak_lengkap'){ ?>
-                  <td><b><p class="text-danger">Tidak Lengkap, Silahkan Dilengkapi !</p></b></td>
+                  <td><p><?php echo date("d-m-Y", strtotime($data['tgl_pengajuan']))?></p></td>
+                  <td><p><?php echo date("d-m-Y", strtotime('+30 days', strtotime($data['tgl_rekomendasi'])))?></p></td>
+                  <?php if($data['status_tempat']=='rekom_expired'){ ?>
+                  <td><b><p class="text-danger">Surat Rekomendasi Expired !</p></b></td>
+                  <td><a class="btn btn-primary" href="riwayat_pengajuan_menara.php?id=<?php echo $data['id_tempat'] ?>">Ajukan Ulang</a></td>
+                  
                 <?php } ?>
                 </tr>
         <?php
             //include 'modal/modal_info_menara.php';
             }
         ?>
+        <tr>
     </table>
   
              </div>

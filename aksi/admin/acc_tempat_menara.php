@@ -17,6 +17,9 @@ $tgl = date("Y-m-d");
 	}elseif($status == 'proses_rekom'){
 		$sql = mysqli_query($config,"UPDATE tb_tempat_menara SET status_tempat='cetak_rekom' WHERE id_tempat='$id'");
 		echo '<script>alert("Data berhasil di update");history.go(-1);</script>';
-		
+	}
+	elseif($status == 'pengajuan_ulang'){
+		$sql = mysqli_query($config,"UPDATE tb_tempat_menara SET status_tempat='cetak_rekom' WHERE id_tempat='$id'");
+		echo '<script>alert("Data berhasil di update");history.go(-1);</script>';
 	}
 ?>
