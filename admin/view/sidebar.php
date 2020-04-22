@@ -46,6 +46,13 @@
           <a class="dropdown-item" href="tambah_dinas.php"><i class="fas fa-fw fa-wave-square text-primary"></i> Data Dinas</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../file/<?php echo "Panduan_Admin.pdf";?>">
+          <i class="fa fa-download"></i>
+          <span>Panduan</span>
+        </a>
+      </li>
+
       <!-- <li class="nav-item">
         <a class="nav-link" href="akun_api.php">
           <i class="fas fa-fw fa-home"></i>
