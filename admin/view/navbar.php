@@ -18,8 +18,8 @@
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #d2d2d2;">
+          <i class="fas fa-user-circle fa-fw" style="font-size: 30px"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="edit_password.php">Ubah Password<!-- <?php echo $_SESSION['username']; ?> --></a>
