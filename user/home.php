@@ -116,33 +116,44 @@ height: 350px;
         </div>
       <hr class="divider my-4">
       <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
+        <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-broadcast-tower text-primary mb-4"></i>
             <h3 class="h4 mb-2">Menara</h3>
-            <a href="home2.php?riwayat=1" class="btn btn-block btn-primary btn-sm">Konfirmasi</a>
+            <a href="home2.php?riwayat=1" class="btn btn-block btn-primary">Konfirmasi</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
+        <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-wave-square text-primary mb-4"></i>
             <h3 class="h4 mb-2">Fiber Optik</h3>
            <a href="home2.php?riwayat=2" class="btn btn-block btn-primary btn-sm">Konfirmasi</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-book text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Riwayat Pengajuan</h3>
+           <a href="riwayat_pengajuan.php" class="btn btn-block btn-primary btn-sm">Konfirmasi</a>
+          </div>
+        </div>
+        <div class="col-lg-2 text-center">
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-info text-primary mb-4"></i>
             <h3 class="h4 mb-2">Info</h3>
            <a href="#" class="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#info">Konfirmasi</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
+        <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-tools text-primary mb-4"></i>
             <h3 class="h4 mb-2">Services</h3>
             <p class="text-primary">Cooming Soon..</p>
           </div>
+        </div>
+        <div class="col-lg-2 text-center">
         </div>
       </div>
     </div>
