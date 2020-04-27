@@ -81,20 +81,10 @@
     <section id="feature" >
         <div class="container">
            <div class="center wow fadeInDown">
-            <div class="row">
-                
                 <h2>Silahkan Download Buku Petunjuk Pada Tombol Dibawah Ini</h2>
-            <div class="col-md-6 col-sm-10">
                 <h4>Petunjuk Pengguna</h4>
                 <button class="btn"><i class="fa fa-download"></i> Download</button>
-            </div>
-
-            <div class="col-md-6 col-sm-10">
-                <h4>Petunjuk Perijinan</h4>
-                <button class="btn"><i class="fa fa-download"></i> Download</button>
-            </div>    
-            </div>
-            </div>   
+            </div>  
         </div><!--/.container-->
     </section><!--/#feature-->
 
