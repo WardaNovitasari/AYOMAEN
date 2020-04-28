@@ -8,6 +8,24 @@ session_start();
     header("location:../404.html");
   }
 
+  if (isset($_GET['id'])) {
+    $idform = $_GET['id'];
+    # code...
+  }
+  elseif (isset($_POST['submit'])) {
+    $id_form = $_POST['id_form'];
+    $siteid = $_POST['nositeid'];
+    $alamat = $_POST['alamat'];
+    $kelurahan = $_POST['kelurahan'];
+    $kecamatan = $_POST['kecamatan'];
+    $lat = $_POST['lat'];
+    $long = $_POST['long'];
+    $tipe_menara = $_POST['tipe_menara'];
+    $tinggi = $_POST['tinggi'];
+    $query = mysqli_query($config, "INSERT INTO tb_tempat_menara VALUES('','$id_form','','$siteid','$alamat','$kelurahan','$kecamatan','$lat','$long','','','$tipe_menara','','$tinggi','proses_survey','','','','','','')");
+    # code...
+  }
+
 ?>
 <html lang="en" >
 <head>
@@ -57,28 +75,13 @@ session_start();
 </head>
 <body>
  
-<!-- partial:index.partial.html -->
-<!-- <nav class="navbar navbar-light bg-light static-top">
-<ul class="nav-mobile check">
-  <li>CLEON</li>        
-  <li class="menu-container"> 
-    <input id="menu-toggle" type="checkbox">
-    <label for="menu-toggle" class="menu-button">  
-      <svg class="icon-open" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-      <svg class="icon-close" viewBox="0 0 100 100">
-        <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
-      </svg> 
-    </label>  -->     
-   
-  <!-- </li>
-</ul>
-</nav> -->
+
 <br /><br />
 
   <div class="container">
     <p><a href="pengajuan_menara.php" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a></p><br>
- <form action="../aksi/admin/aksi_input_menara_baru.php" class="was-validated" method="POST">
-  <input type="hidden" name="id_tempat" value="<?php echo $id_tempat ?>">
+ <form action="input_menara_baru.php" class="was-validated" method="POST">
+  <input type="hidden" name="id_form" value="<?php echo $idform ?>">
   <div class="form-group">
     <label for="uname">Nomor Site ID :</label>
     <input type="text" class="form-control" id="nositeid" placeholder="Nomor Site ID" name="nositeid" required="">
@@ -111,7 +114,7 @@ session_start();
     <label for="alamat">Tinggi :</label>
     <input type="text" class="form-control" id="tinggi" placeholder="Tinggi" name="tinggi" required="">
   </div>
-  <button type="submit" class="btn btn-primary" name="update" onclick="return confirm('Apakah Data Sudah Benar ?')">Submit</button>
+  <button type="submit" class="btn btn-primary" name="submit" onclick="return confirm('Apakah Data Sudah Benar ?')">Submit</button>
 </form> 
 
  </div>

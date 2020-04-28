@@ -9,7 +9,7 @@ $lng = $tempat2['lng'];
 if (isset($_POST['submit'])) {
   $namaPenerima = $_POST['nama_penerima'];
   $tglTerima = $_POST['tgl_terima'];
-   $queryupdate = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `nama_penerima`='$namaPenerima',`tanggal_terima`='$tglTerima' WHERE `id_form`='$idform'");
+   $queryupdate = mysqli_query($config, "UPDATE `tb_tempat_menara` SET `nama_penerima`='$namaPenerima',`tgl_terima`='$tglTerima' WHERE `id_form`='$id'");
 
   }
   // header("Refresh:0; url=");

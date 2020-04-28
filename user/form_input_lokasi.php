@@ -581,7 +581,7 @@ $('#clickme').change(function(){
                     $soal=mysqli_fetch_array($query);
                     // QUERY SOAL 11
                     $query11=mysqli_query($config, "SELECT nm_file FROM tb_soal JOIN tb_contoh_surat ON tb_soal.id = tb_contoh_surat.id WHERE tb_contoh_surat.id=11");
-                    $data11 = mysqli_fetch_assoc($query7);
+                    $data11 = mysqli_fetch_assoc($query11);
                     // QUERY SOAL 11
                   ?>
                   <h5><?php echo $soal['soal'];?></h5>

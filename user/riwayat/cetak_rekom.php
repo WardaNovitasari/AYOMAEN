@@ -30,6 +30,8 @@
             <th>Tipe Menara</th>
             <th>Tinggi</th>
             <th>Status</th>
+            <th>Nama Penerima</th>
+            <th>Tanggal</th>
         </tr>
 
         <?php
@@ -46,6 +48,8 @@
                   <td><p><?php echo $data['tipe_menara'] ?></p></td>
                   <td><p><?php echo $data['tinggi'] ?></p></td>
                   <td><p class="text-danger"><b><?php echo $data['status_tempat'] ?></b><p></td>
+                    <td><p><?php echo $data['nama_penerima'] ?></p></td>
+                    <td><p><?php echo $data['tgl_terima'] ?></p></td>
                 </tr>
         <?php
             //include 'modal/modal_info_menara.php';

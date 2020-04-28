@@ -85,7 +85,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
     $querysite = mysqli_query($config,"SELECT max(site_id_hasil) as maxSite FROM tb_tempat_menara");
     $datasite = mysqli_fetch_array($querysite);
     $sitebaru = $datasite['maxSite'];
-    $nourut = substr($sitebaru, 3, 4); // contoh JRD0004, angka 3 adalah awal pengambilan angka, dan 4 jumlah angka yang diambil
+    $nourut = substr($sitebaru, 0, 4); // contoh JRD0004, angka 3 adalah awal pengambilan angka, dan 4 jumlah angka yang diambil
     $nourut++; 
     $siteidhasil = sprintf("%04s", $nourut) ;
     $query = mysqli_query($config,"SELECT * FROM tb_tempat_menara JOIN tb_kecamatan JOIN tb_kelurahan JOIN tb_perusahaan JOIN  tb_form_menara ON tb_tempat_menara.kelurahan=tb_kelurahan.kelurahan AND tb_tempat_menara.kecamatan=tb_kecamatan.kecamatan AND tb_tempat_menara.id_form = tb_form_menara.id_form  AND tb_form_menara.id_perusahaan=tb_perusahaan.id_perusahaan WHERE tb_tempat_menara.id_tempat ='$id'");
@@ -95,6 +95,7 @@ $pegawai = mysqli_query($config,"SELECT * FROM tb_pegawai WHERE jabatan='KEPALA'
       $siteidhasil = $data['site_id_hasil'];
     }
     $fixsiteid = $data['digit_awal'].$data['digit_akhir'].'.'.$siteidhasil;
+    echo $siteidhasil;
   ?>
   <tr><td><p>a. Site ID</p></td><td>:</td><td><?php echo $fixsiteid ?></td></tr>
   <tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude <?php echo $data['lat_hasil'] ?>  ; Longitude <?php echo $data['lng_hasil']; ?></p></td></tr>

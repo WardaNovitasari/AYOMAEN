@@ -170,6 +170,7 @@ session_start();
 
           
               </table>
+              <div class="form-row">
               <label>Penerima</label><br>
               <input type="text" name="penerima" value="<?php echo $penerima['nm_user'] ?>"><br>
               <label>Kelengkapan Berkas</label><br>
@@ -177,7 +178,7 @@ session_start();
                 <option value="lengkap">Berkas Lengkap</option>
                 <option value="belum">Berkas Belum Lengkap</option>
               </select>
-
+              </div>
                 <input type="submit" name="submit" class="btn btn-primary" value="submit" id="submit"> 
               </form>
             </div>
