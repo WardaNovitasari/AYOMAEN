@@ -81,7 +81,7 @@ session_start();
 	<div class="kopsurat">
 			<img src="view/logo.png">
 			<p style="font-size: 22px;">PEMERINTAH KOTA YOGYAKARTA</p>
-			<b><h2>DINAS KOMUNIKASI INFORMATIKA DAN PERSANDIAN</h2></b>
+			<b><h3>DINAS KOMUNIKASI INFORMATIKA DAN PERSANDIAN</h3></b>
 			<p>Jl. Kenari No. 56 Yogyakarta Kode Pos 55165 Telp.(0274)551230, 515865, 562682 Fax. (0274)520332</p>
 			<p>EMAIL : <u>kominfosandi@jogjakota.go.id:</u></p>
 			<p>HOTLINE SMS: 081 2278 0001; HOTLINE EMAIL : <u>upik@jogjakota.go.id</u></p>
@@ -92,12 +92,24 @@ session_start();
 	<div class="bodysurat">
 		<h3><u>REKOMENDASI TITIK LOKASI MENARA TELEKOMUNIKASI</u></h3>
 		<center><p>Nomor 555 / '.$id.' </p></center></br>
-		<p>Menindaklanjuti Permohonan Rekomendasi Titik Lokasi Menara Telekomunikasi Nomor '.$data_pt['no_surat'].' dari '.$data_pt['nm_perusahaan'].'tertanggal '.tgl_indo($data_pt['tgl_pengajuan']).' , serta berdasarkan :<br>
-	1. Peraturan Daerah Kota Yogyakarta Nomor 7 Tahun 2017 tentang Penataan dan Pengendalian Menara Telekomunikasi dan Fiber Optik.<br>
-	2. Peraturan Walikota Yogyakarta Nomor 66 Tahun 2018 tentang Petunjuk Pelaksanaan Peraturan Daerah Kota Yogyakarta Nomor 7 Tahun 2017 tentang Penataan dan Pengendalian Menara Telekomunikasi dan Fiber Optik.<br>
-	3. Keputusan Walikota Yogyakarta Nomor 384 Tahun 2017 tentang Penetapan Lokasi Pendirian MenaraMicrocell.<br>
-	4. Berita Acara Peninjauan Titik Lokasi Penempatan Menara Telekomunikasi Nomor 490/'.$data_pt['id_form'].' Tanggal '.tgl_indo($data_pt['tgl_surat']).'.<br>
-	Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta memberikan rekomendasi titik lokasi menara telekomunikasi kepada '.$data_pt['nm_perusahaan'].' yang beralamatkan '.$data_pt['alamat_perusahaan'].' untuk pembangunan menara telekomunikasi bersama dengan data berikut :
+		<p>Menindaklanjuti Permohonan Rekomendasi Titik Lokasi Menara Telekomunikasi Nomor '.$data_pt['no_surat'].' dari '.$data_pt['nm_perusahaan'].'tertanggal '.tgl_indo($data_pt['tgl_pengajuan']).' , serta berdasarkan :
+    <table border="0" class="tbcontainer">
+    <tr><td>1.</td> 
+    <td>Peraturan Daerah Kota Yogyakarta Nomor 7 Tahun 2017 tentang Penataan dan Pengendalian Menara Telekomunikasi dan Fiber Optik.<br>
+    </td></tr>
+     <tr><td>2.</td>
+     <td>Peraturan Walikota Yogyakarta Nomor 66 Tahun 2018 tentang Petunjuk Pelaksanaan Peraturan Daerah Kota Yogyakarta Nomor 7 Tahun 2017 tentang Penataan dan Pengendalian Menara Telekomunikasi dan Fiber Optik.<br>
+     </td></tr>
+     <tr><td>3.</td>
+     <td>Keputusan Walikota Yogyakarta Nomor 384 Tahun 2017 tentang Penetapan Lokasi Pendirian MenaraMicrocell.<br>
+     </td></tr>
+	   <tr><td>4.</td>
+     <td>Berita Acara Peninjauan Titik Lokasi Penempatan Menara Telekomunikasi Nomor 490/'.$data_pt['id_form'].' Tanggal '.tgl_indo($data_pt['tgl_surat']).'.<br>
+     </td></tr>
+     </table>
+     </p>
+	   <p>Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta memberikan rekomendasi titik lokasi menara telekomunikasi kepada '.$data_pt['nm_perusahaan'].' yang beralamatkan '.$data_pt['alamat_perusahaan'].' untuk pembangunan menara telekomunikasi bersama dengan data berikut :
+     </p>
 									<table border="0" class="tbcontainer">
 											<tr><td><p>a. Site ID</p></td><td>:</td><td>'.$data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'].'</td></tr>
 											<tr><td><p>b. Titik Koordinat</p></td><td>:</td><td> <p>Latitude '.$data['lat'].' Longitude '.$data['lng'].'</p></td></tr>
@@ -110,13 +122,20 @@ session_start();
 											<tr><td><p>i. Tipe Menara</p></td><td><p>:</p></td><td><p>'.$data['tipe_site'].' Kaki</p></td></tr>
 											<tr><td><p>j. Keterangan</p></td><td><p>:</p></td><td><p id="tipe-menara">'.$data_rekom['keterangan_rekomendasi'].'</p></td></tr>
 									</table>
-									<p>Dengan ketentuan sebagai berikut :
-									<ol>
-										<li> Rekomendasi Titik Lokasi Menara Telekomunikasi adalah keterangan bahwa koordinat tersebut diatas dapat ditempatkan menara telekomunikasi dan <b><u>bukan</u></b> merupakan izin pendirian menara telekomunikasi;</li>
-										<li>Rekomendasi ini berlaku 30 hari kerja sejak diterbitkan;</li>
-										<li>Penyedia menara wajib melaporkan penggunaan menaranya 1 (satu) kali dalam setahun meliputi nama dan jumlah pengguna menara, kapasitas yang tersisa, masa kontrak pengguna menara, rencana penempatan antena dan daftar calon pengguna menara kepada Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta;</li>
-									Demikian untuk menjadi periksa.</p>
-									</ol>
+									
+									<p>
+                  Dengan ketentuan sebagai berikut :
+									<table border="0" class="tbcontainer">
+                  <tr><td>1.</td> 
+                  <td>Rekomendasi Titik Lokasi Menara Telekomunikasi adalah keterangan bahwa koordinat tersebut diatas dapat ditempatkan menara telekomunikasi dan <b><u>bukan</u></b> merupakan izin pendirian menara telekomunikasi;</td></tr>
+
+									<tr><td>2.</td> 
+                  <td>Rekomendasi ini berlaku 30 hari kerja sejak diterbitkan;</td></tr>
+									<tr><td>3.</td>
+                  <td>Penyedia menara wajib melaporkan penggunaan menaranya 1 (satu) kali dalam setahun meliputi nama dan jumlah pengguna menara, kapasitas yang tersisa, masa kontrak pengguna menara, rencana penempatan antena dan daftar calon pengguna menara kepada Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta;</td></tr>
+                  </table>
+									Demikian untuk menjadi periksa.
+								</p>
  								<br>
  									<table border="0" align="right" class="tbcontainer">
  										<tr><td><center><p>Yogyakarta, '.tgl_indo($data_rekom['tgl_rekomendasi']).'</p></center></td></tr>
@@ -144,8 +163,10 @@ $html .='
  									<br>
  									<br>
  									<br>
-								 	<p>Tembusan :</p>
-								 	<ol>';
+                  
+                  <ol>
+								 	Tembusan :
+								 	';
                     if($data_rekom['id_dinas']==''){
                   $html .='
  										<li><p>Dinas Penanaman Modal dan Perizinan Kota Yogyakarta;</p></li>
@@ -158,6 +179,7 @@ $html .='
                 }
                 $html .='
  									</ol>
+                  
 								</div>
 						</div>
 					</body>
