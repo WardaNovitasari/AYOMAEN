@@ -128,7 +128,6 @@ session_start();
 									<table border="0" class="tbcontainer">
                   <tr><td>1.</td> 
                   <td>Rekomendasi Titik Lokasi Menara Telekomunikasi adalah keterangan bahwa koordinat tersebut diatas dapat ditempatkan menara telekomunikasi dan <b><u>bukan</u></b> merupakan izin pendirian menara telekomunikasi;</td></tr>
-
 									<tr><td>2.</td> 
                   <td>Rekomendasi ini berlaku 30 hari kerja sejak diterbitkan;</td></tr>
 									<tr><td>3.</td>
@@ -145,6 +144,8 @@ session_start();
  										<tr><td>&nbsp;</td></tr>
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
  										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p>
+                    <br>
+                    <br>
                     <p><img src="data:image/png;base64,' . base64_encode($generator->getBarcode($data_pt['digit_awal'].$data_pt['digit_akhir'].'.'.$data['site_id_hasil'], $generator::TYPE_CODE_128, 2, 20)) . '"></p>
 
                     </center></td></tr>';
