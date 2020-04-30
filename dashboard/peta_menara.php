@@ -93,7 +93,7 @@
                         Ext. 211<br>
                         Fax. (0247) 520332<br>
                         <i class="fa fa-envelope"></i> kominfosandi@jogjakota.co.id<br>
-                        <i class="fa fa-map-marker"></i> Jl. Kenari No. 56 Yogyakarta, Kota Gede<br>
+                        <i class="fa fa-map-marker"></i> Jl. Kenari No. 56 Yogyakarta.<br>
 
                     </div>    
                 </div><!--/.col-md-3-->
