@@ -555,7 +555,7 @@ $('#clickme').change(function(){
 
 <tr>
 <td colspan="2" style="color: red;">
-<input type="checkbox" name="clickme" id="clickme"> *Centang jika tinggi menara lebih dari 6 meter.
+<input type="checkbox" name="clickme" id="clickme"> *Centang jika tinggi menara ≤ 6 Meter (Menara dengan ketinggian s/d 6 meter).
 </td>
 </tr>
 

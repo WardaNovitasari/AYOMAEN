@@ -91,7 +91,7 @@ session_start();
 	</div>
 	<div class="bodysurat">
 		<h3><u>REKOMENDASI TITIK LOKASI MENARA TELEKOMUNIKASI</u></h3>
-		<center><p>Nomor 555 / '.$id.' </p></center></br>
+		<center><p>Nomor 555 / '.$id.' </p></center><p>&nbsp;</p>
 		<p>Menindaklanjuti Permohonan Rekomendasi Titik Lokasi Menara Telekomunikasi Nomor '.$data_pt['no_surat'].' dari '.$data_pt['nm_perusahaan'].'tertanggal '.tgl_indo($data_pt['tgl_pengajuan']).' , serta berdasarkan :
     <table border="0" class="tbcontainer">
     <tr><td>1.</td> 
@@ -122,9 +122,9 @@ session_start();
 											<tr><td><p>i. Tipe Menara</p></td><td><p>:</p></td><td><p>'.$data['tipe_site'].' Kaki</p></td></tr>
 											<tr><td><p>j. Keterangan</p></td><td><p>:</p></td><td><p id="tipe-menara">'.$data_rekom['keterangan_rekomendasi'].'</p></td></tr>
 									</table>
-									
 									<p>
                   Dengan ketentuan sebagai berikut :
+                  </p>
 									<table border="0" class="tbcontainer">
                   <tr><td>1.</td> 
                   <td>Rekomendasi Titik Lokasi Menara Telekomunikasi adalah keterangan bahwa koordinat tersebut diatas dapat ditempatkan menara telekomunikasi dan <b><u>bukan</u></b> merupakan izin pendirian menara telekomunikasi;</td></tr>
@@ -133,6 +133,7 @@ session_start();
 									<tr><td>3.</td>
                   <td>Penyedia menara wajib melaporkan penggunaan menaranya 1 (satu) kali dalam setahun meliputi nama dan jumlah pengguna menara, kapasitas yang tersisa, masa kontrak pengguna menara, rencana penempatan antena dan daftar calon pengguna menara kepada Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta;</td></tr>
                   </table>
+                <p>
 									Demikian untuk menjadi periksa.
 								</p>
  								<br>
@@ -142,6 +143,7 @@ session_start();
  										<tr><td>&nbsp;</td></tr>
  										<tr><td>&nbsp;</td></tr>
  										<tr><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td></tr>
  										<tr><td><u><center><p>'.$dt_pegawai['nama'].'</p></center></u></td></tr>
  										<tr><td><center><p>NIP.'.$dt_pegawai['nip'].'</p>
                     <br>
@@ -162,9 +164,6 @@ $html .='
  									<br>
  									<br>
  									<br>
- 									<br>
- 									<br>
-                  
                   <ol>
 								 	Tembusan :
 								 	';
